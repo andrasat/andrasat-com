@@ -2,6 +2,10 @@ import type { Config } from 'tailwindcss'
 
 export default <Partial<Config>>{
   theme: {
+    fontFamily: {
+      sans: ['Comfortaa', 'sans-serif'],
+      mono: ['Red Hat Mono', 'monospace']
+    },
     extend: {
       colors: {
         aero: '#51b4d3',
