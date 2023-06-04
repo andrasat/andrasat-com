@@ -5,6 +5,19 @@ on:
     branches:
       - releases/**
 jobs:
+  Semantic-Release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Setup Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: 18
+      - name: Install Dependencies
+        run: npm install
+      - name: Semantic Release
+        run: npx semantic-release
   Build-And-Deploy:
     runs-on: ubuntu-latest
     steps:
