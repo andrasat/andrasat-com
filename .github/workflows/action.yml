@@ -1,5 +1,5 @@
 name: Andrasat Nuxt Deployment
-run-name: ${{ github.actor }} building... 🚀
+run-name: ${{ github.actor }} is building... 🚀
 on:
   push:
     branches:
@@ -10,14 +10,14 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-      - name: Setup Node.js
-        uses: actions/setup-node@v3
+      - name: Setup Bun
+        uses: oven-sh/setup-bun@v1
         with:
-          node-version: 18
+          bun-version: v0.6.7
       - name: Install Dependencies
-        run: npm install
+        run: bun install
       - name: Semantic Release
-        run: npx semantic-release
+        run: bun run semantic-release
   Build-And-Deploy:
     runs-on: ubuntu-latest
     steps:
@@ -28,16 +28,18 @@ jobs:
       - name: Login to Droplet and Pull Main
         run: |
           echo "🚀 Logging into Droplet and Updating Repository"
-          doctl compute ssh default --ssh-command "cd /var/www && git pull origin main"
+          doctl compute ssh "$DROPLET_ID" --ssh-command "cd /var/www && git pull origin main"
+        env:
+          DROPLET_ID: ${{ secrets.DROPLET_ID }}
       - name: Install Dependencies
         run: |
           echo "🚀 Installing Dependencies"
-          doctl compute ssh default --ssh-command "cd /var/www/andrasat-nuxt && bun install"
+          doctl compute ssh "$DROPLET_ID" --ssh-command "cd /var/www/andrasat-nuxt && bun install"
       - name: Build App
         run: |
           echo "🚀 Building App"
-          doctl compute ssh default --ssh-command "cd /var/www/andrasat-nuxt && bun run build"
+          doctl compute ssh "$DROPLET_ID" --ssh-command "cd /var/www/andrasat-nuxt && bun run build"
       - name: Run App
         run: |
           echo "🚀 Running App"
-          doctl compute ssh default --ssh-command "cd /var/www/andrasat-nuxt && bun run ./output/server/index.mjs"
+          doctl compute ssh "$DROPLET_ID" --ssh-command "cd /var/www/andrasat-nuxt && bun run ./output/server/index.mjs"
