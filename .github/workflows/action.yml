@@ -1,5 +1,5 @@
-name: GitHub Actions Demo
-run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
+name: Andrasat Nuxt Deployment
+run-name: ${{ github.actor }} building... 🚀
 on:
   push:
     branches:
@@ -11,7 +11,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
       - name: Setup Node.js
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v3
         with:
           node-version: 18
       - name: Install Dependencies
@@ -30,11 +30,15 @@ jobs:
           echo "🚀 Logging into Droplet and Updating Repository"
           doctl auth init --context github-actions --access-token ${{ secrets.DIGITALOCEAN_ACCESS_TOKEN }}
           doctl compute ssh github-actions --ssh-command "cd /var/www && git pull origin main"
+      - name: Install Dependencies
+        run: |
+          echo "🚀 Installing Dependencies"
+          doctl compute ssh github-actions --ssh-command "cd /var/www/andrasat-nuxt && bun install"
       - name: Build App
         run: |
           echo "🚀 Building App"
-          doctl compute ssh github-actions --ssh-command "cd /var/www && bun run build"
+          doctl compute ssh github-actions --ssh-command "cd /var/www/andrasat-nuxt && bun run build"
       - name: Run App
         run: |
           echo "🚀 Running App"
-          doctl compute ssh github-actions --ssh-command "cd /var/www && bun run ./output/server/index.mjs"
+          doctl compute ssh github-actions --ssh-command "cd /var/www/andrasat-nuxt && bun run ./output/server/index.mjs"
