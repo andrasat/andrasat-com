@@ -28,17 +28,16 @@ jobs:
       - name: Login to Droplet and Pull Main
         run: |
           echo "🚀 Logging into Droplet and Updating Repository"
-          doctl auth init --context github-actions --access-token ${{ secrets.DIGITALOCEAN_ACCESS_TOKEN }}
-          doctl compute ssh github-actions --ssh-command "cd /var/www && git pull origin main"
+          doctl compute ssh default --ssh-command "cd /var/www && git pull origin main"
       - name: Install Dependencies
         run: |
           echo "🚀 Installing Dependencies"
-          doctl compute ssh github-actions --ssh-command "cd /var/www/andrasat-nuxt && bun install"
+          doctl compute ssh default --ssh-command "cd /var/www/andrasat-nuxt && bun install"
       - name: Build App
         run: |
           echo "🚀 Building App"
-          doctl compute ssh github-actions --ssh-command "cd /var/www/andrasat-nuxt && bun run build"
+          doctl compute ssh default --ssh-command "cd /var/www/andrasat-nuxt && bun run build"
       - name: Run App
         run: |
           echo "🚀 Running App"
-          doctl compute ssh github-actions --ssh-command "cd /var/www/andrasat-nuxt && bun run ./output/server/index.mjs"
+          doctl compute ssh default --ssh-command "cd /var/www/andrasat-nuxt && bun run ./output/server/index.mjs"
