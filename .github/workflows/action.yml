@@ -1,0 +1,40 @@
+name: GitHub Actions Demo
+run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
+on:
+  push:
+    branches:
+      - releases/**
+jobs:
+  Semantic-Release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Setup Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: 18
+      - name: Install Dependencies
+        run: npm install
+      - name: Semantic Release
+        run: npx semantic-release
+  Build-And-Deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: GitHub Action for DigitalOcean - doctl
+        uses: digitalocean/action-doctl@v2.3.0
+        with:
+          token: ${{ secrets.DIGITALOCEAN_ACCESS_TOKEN }}
+      - name: Login to Droplet and Pull Main
+        run: |
+          echo "🚀 Logging into Droplet and Updating Repository"
+          doctl auth init --context github-actions --access-token ${{ secrets.DIGITALOCEAN_ACCESS_TOKEN }}
+          doctl compute ssh github-actions --ssh-command "cd /var/www && git pull origin main"
+      - name: Build App
+        run: |
+          echo "🚀 Building App"
+          doctl compute ssh github-actions --ssh-command "cd /var/www && bun run build"
+      - name: Run App
+        run: |
+          echo "🚀 Running App"
+          doctl compute ssh github-actions --ssh-command "cd /var/www && bun run ./output/server/index.mjs"
