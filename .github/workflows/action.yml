@@ -18,7 +18,7 @@ jobs:
         run: bun install
       - name: Semantic Release
         env:
-          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
         run: bun run semantic-release
   Build-And-Deploy:
     runs-on: ubuntu-latest
