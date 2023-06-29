@@ -1,6 +1,6 @@
 <template>
   <footer class="p-2 md:p-3 pb-10 h-16 flex flex-col justify-center items-center">
-    <h5 class="text-center">
+    <h5 id="contact" class="text-center">
       Contact:
     </h5>
 
