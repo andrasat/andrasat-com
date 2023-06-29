@@ -13,6 +13,15 @@ export default <Partial<Config>>{
         'medium-slate-blue': '#7d66dd',
         coral: '#f98c67',
         'indigo-dye': '#1c4666'
+      },
+      keyframes: {
+        'fade-in': {
+          '0%': { opacity: '0' },
+          '100%': { opacity: '1' }
+        }
+      },
+      animation: {
+        'fade-in': 'fade-in 0.5s ease-in-out'
       }
     }
   }
