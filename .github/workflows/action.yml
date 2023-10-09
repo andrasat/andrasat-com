@@ -1,5 +1,8 @@
-name: Andrasat Nuxt Deployment
+name: Andrasat Nuxt Vercel Deployment
 run-name: ${{ github.actor }} is building... 🚀
+env:
+  VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+  VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
 on:
   push:
     branches:
@@ -20,28 +23,15 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
         run: bun run semantic-release
-  Build-And-Deploy:
+  Deploy-Production:
     runs-on: ubuntu-latest
     steps:
-      - name: GitHub Action for DigitalOcean - doctl
-        uses: digitalocean/action-doctl@v2.3.0
-        with:
-          token: ${{ secrets.DIGITALOCEAN_ACCESS_TOKEN }}
-      - name: Login to Droplet and Pull Main
-        run: |
-          echo "🚀 Logging into Droplet and Updating Repository"
-          doctl compute ssh "$DROPLET_ID" --ssh-command "cd /var/www && git pull origin main"
-        env:
-          DROPLET_ID: ${{ secrets.DROPLET_ID }}
-      - name: Install Dependencies
-        run: |
-          echo "🚀 Installing Dependencies"
-          doctl compute ssh "$DROPLET_ID" --ssh-command "cd /var/www/andrasat-nuxt && bun install"
-      - name: Build App
-        run: |
-          echo "🚀 Building App"
-          doctl compute ssh "$DROPLET_ID" --ssh-command "cd /var/www/andrasat-nuxt && bun run build"
-      - name: Run App
-        run: |
-          echo "🚀 Running App"
-          doctl compute ssh "$DROPLET_ID" --ssh-command "cd /var/www/andrasat-nuxt && bun run ./output/server/index.mjs"
+      - uses: actions/checkout@v2
+      - name: Install Vercel CLI
+        run: npm install --global vercel@latest
+      - name: Pull Vercel Environment Information
+        run: vercel pull --yes --environment=production --token=${{ secrets.VERCEL_TOKEN }}
+      - name: Build Project Artifacts
+        run: vercel build --prod --token=${{ secrets.VERCEL_TOKEN }}
+      - name: Deploy Project Artifacts to Vercel
+        run: vercel deploy --prebuilt --prod --token=${{ secrets.VERCEL_TOKEN }}
