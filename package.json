@@ -13,14 +13,12 @@
   },
   "private": true,
   "scripts": {
-    "build:digitalocean": "yarn install --production=false && yarn run build && rm -rf node_modules && yarn install --production --frozen-lockfile",
     "build": "nuxt build",
     "dev": "nuxt dev",
     "lint": "eslint --ext .ts,.js,.vue --ignore-path .gitignore .",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare",
-    "prepare": "husky install",
     "semantic-release": "semantic-release"
   },
   "devDependencies": {
