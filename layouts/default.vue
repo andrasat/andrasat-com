@@ -1,5 +1,5 @@
 <template>
-  <div class="dark:bg-licorice dark:text-gray-300 min-h-screen pt-16">
+  <div class="dark:bg-gray-900 dark:text-gray-300 relative pt-16">
     <MyHeader />
     <slot />
     <MyFooter />

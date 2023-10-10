@@ -39,6 +39,25 @@ const navMenuClass = computed(() => ({
 function onClick () {
   isOpened.value = !isOpened.value
 }
+
+function onClickOutside (e: Event) {
+  if (isOpened.value) {
+    const target = e.target as HTMLElement
+    const headerMenuElement = headerMenu.value as HTMLElement
+
+    if (!headerMenuElement.contains(target)) {
+      isOpened.value = false
+    }
+  }
+}
+
+onMounted(() => {
+  window.addEventListener('click', onClickOutside)
+})
+
+onUnmounted(() => {
+  window.removeEventListener('click', onClickOutside)
+})
 </script>
 
 <template>
@@ -48,14 +67,19 @@ function onClick () {
     <span v-if="!isOpened.valueOf()" class="inline-block h-px w-6 border-t border-t-gray-300" />
   </div>
 
-  <div v-if="isOpened.valueOf()" class="text-gray-300" :class="navMenuClass">
+  <div v-if="isOpened.valueOf()" class="border-2 border-gray-300 rounded-md bg-licorice text-gray-300" :class="navMenuClass">
     <ul>
-      <li>
-        <NuxtLink to="#about">
+      <li class="focus:hover:underline">
+        <NuxtLink to="/">
           About
         </NuxtLink>
       </li>
-      <li>
+      <li class="focus:hover:underline">
+        <NuxtLink to="/blog">
+          Blog
+        </NuxtLink>
+      </li>
+      <li class="focus:hover:underline">
         <NuxtLink to="#contact">
           Contact
         </NuxtLink>

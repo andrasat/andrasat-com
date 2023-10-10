@@ -1,6 +1,11 @@
 import path from 'node:path'
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
+  app: {
+    head: {
+      link: [{ rel: 'stylesheet', href: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css' }]
+    }
+  },
   alias: {
     '~': path.resolve(__dirname),
     '@assets': path.resolve(__dirname, 'assets'),
@@ -12,8 +17,9 @@ export default defineNuxtConfig({
     [
       '@nuxtjs/google-fonts',
       {
+        text: 'Hello World',
         families: {
-          Comfortaa: [400, 700],
+          Urbanist: [400, 700],
           'Red+Hat+Mono': [400]
         },
         display: 'swap',
