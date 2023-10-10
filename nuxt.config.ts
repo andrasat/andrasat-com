@@ -19,7 +19,7 @@ export default defineNuxtConfig({
       {
         text: 'Hello World',
         families: {
-          Urbanist: [400, 700],
+          'Noto+Sans': [400, 700],
           'Red+Hat+Mono': [400]
         },
         display: 'swap',

@@ -8,12 +8,12 @@ useSeoMeta({
 </script>
 
 <template>
-  <div class="mt-3 p-4 md:p-6 min-h-screen pb-36">
-    <p>
+  <div class="mt-6 p-4 md:p-6 min-h-screen pb-36 m-auto w-[80vw]">
+    <p class="max-w-lg">
       Hello World!, My name is Andra Satria. Currently I'm working as a Senior Full Stack Developer at
       <a ref="noreferrer" href="https://www.base.co.id" target="_blank" class="text-blue-600">BASE</a>.
     </p>
-    <p class="mt-6">
+    <p class="mt-6 max-w-lg">
       I am a software engineer with 5+ years of experience in developing web apps.
       I have a passion for creating innovative solutions that solve real-world problems and enhance user experience.
       I have worked with various technologies and frameworks, such as below. I am always eager to learn new skills and explore new challenges.

@@ -3,7 +3,7 @@ import type { Config } from 'tailwindcss'
 export default <Partial<Config>>{
   theme: {
     fontFamily: {
-      sans: ['Urbanist', 'sans-serif'],
+      sans: ['Noto Sans', 'sans-serif'],
       mono: ['Red Hat Mono', 'monospace']
     },
     extend: {

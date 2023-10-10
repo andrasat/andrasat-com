@@ -68,18 +68,18 @@ onUnmounted(() => {
   </div>
 
   <div v-if="isOpened.valueOf()" class="border-2 border-gray-300 rounded-md bg-licorice text-gray-300" :class="navMenuClass">
-    <ul>
-      <li class="focus:hover:underline">
+    <ul class="p-1">
+      <li class="focus:hover:underline p-1">
         <NuxtLink to="/">
           About
         </NuxtLink>
       </li>
-      <li class="focus:hover:underline">
+      <li class="focus:hover:underline p-1">
         <NuxtLink to="/blog">
           Blog
         </NuxtLink>
       </li>
-      <li class="focus:hover:underline">
+      <li class="focus:hover:underline p-1">
         <NuxtLink to="#contact">
           Contact
         </NuxtLink>
