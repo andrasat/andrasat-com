@@ -2,6 +2,25 @@
 const headerMenu = ref()
 const isOpened = shallowRef(false)
 
+const navItems = [
+  {
+    name: 'About',
+    url: '/'
+  },
+  {
+    name: 'Blog',
+    url: '/blog'
+  },
+  {
+    name: 'Experience',
+    url: '/experiences'
+  },
+  {
+    name: 'Contact',
+    url: '#contact'
+  }
+]
+
 const headerMenuClass = computed(() => ({
   // opened
   'justify-center': isOpened.value,
@@ -50,19 +69,9 @@ function onClick () {
 
   <div v-if="isOpened.valueOf()" class="border-2 border-gray-300 rounded-md bg-licorice text-gray-300" :class="navMenuClass">
     <ul class="p-1">
-      <li class="focus:hover:underline p-1">
-        <NuxtLink to="/">
-          About
-        </NuxtLink>
-      </li>
-      <li class="focus:hover:underline p-1">
-        <NuxtLink to="/blog">
-          Blog
-        </NuxtLink>
-      </li>
-      <li class="focus:hover:underline p-1">
-        <NuxtLink to="#contact">
-          Contact
+      <li v-for="item in navItems" :key="item.name" class="focus:hover:underline p-1">
+        <NuxtLink :to="item.url">
+          {{ item.name }}
         </NuxtLink>
       </li>
     </ul>

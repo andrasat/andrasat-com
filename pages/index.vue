@@ -5,16 +5,21 @@ useSeoMeta({
   description: 'My personal website',
   ogDescription: 'My personal website'
 })
+
+const START_DEV_WORK = new Date('2017-07-01')
+const NOW = new Date()
+const yoe = new Date(NOW.getTime() - START_DEV_WORK.getTime()).getFullYear()
+
 </script>
 
 <template>
-  <div class="mt-6 p-4 md:p-6 min-h-screen pb-36 m-auto w-[80vw]">
+  <PageContainer>
     <p class="max-w-lg">
       Hello World!, My name is Andra Satria. Currently I'm working as a Senior Full Stack Developer at
-      <a ref="noreferrer" href="https://www.base.co.id" target="_blank" class="text-blue-600">BASE</a>.
+      <a ref="noopener noreferrer" href="https://www.base.co.id" target="_blank" class="text-blue-600">BASE</a>.
     </p>
     <p class="mt-6 max-w-lg">
-      I am a software engineer with 5+ years of experience in developing web apps.
+      I am a software engineer with {{ yoe }}+ years of experience in developing web apps.
       I have a passion for creating innovative solutions that solve real-world problems and enhance user experience.
       I have worked with various technologies and frameworks, such as below. I am always eager to learn new skills and explore new challenges.
     </p>
@@ -69,7 +74,7 @@ useSeoMeta({
       &amp;
       TailwindCSS{{ '\xa0' }}<img alt="tailwindcss" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-plain.svg" width="24" height="24" class="inline ml-2 mr-2">
     </p>
-  </div>
+  </PageContainer>
 </template>
 
 <style>
