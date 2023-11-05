@@ -39,25 +39,6 @@ const navMenuClass = computed(() => ({
 function onClick () {
   isOpened.value = !isOpened.value
 }
-
-function onClickOutside (e: Event) {
-  if (isOpened.value) {
-    const target = e.target as HTMLElement
-    const headerMenuElement = headerMenu.value as HTMLElement
-
-    if (!headerMenuElement.contains(target)) {
-      isOpened.value = false
-    }
-  }
-}
-
-onMounted(() => {
-  window.addEventListener('click', onClickOutside)
-})
-
-onUnmounted(() => {
-  window.removeEventListener('click', onClickOutside)
-})
 </script>
 
 <template>
