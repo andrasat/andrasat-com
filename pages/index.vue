@@ -6,9 +6,9 @@ useSeoMeta({
   ogDescription: 'My personal website'
 })
 
-const START_DEV_WORK = new Date('2017-07-01')
+const START_DEV_WORK = new Date('2017-07-01T00:00:00.000+07:00')
 const NOW = new Date()
-const yoe = new Date(NOW.getTime() - START_DEV_WORK.getTime()).getFullYear()
+const yoe = Math.floor((NOW.getTime() - START_DEV_WORK.getTime()) / (1000 * 3600 * 24 * 365))
 
 </script>
 
