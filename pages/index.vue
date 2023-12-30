@@ -21,6 +21,8 @@ const yoe = Math.floor((NOW.getTime() - START_DEV_WORK.getTime()) / (1000 * 3600
     <p class="mt-6 max-w-lg">
       I am a software engineer with {{ yoe }}+ years of experience in developing web apps.
       I have a passion building products from 0 to 1 that solve real-world problems, also I love optimizing performance, simplify things, and improve user experience.
+    </p>
+    <p class="mt-6 max-w-lg">
       I have worked with various technologies and frameworks, such as below. I am always eager to learn new skills and explore new challenges.
     </p>
 
