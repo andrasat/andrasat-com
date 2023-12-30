@@ -12,7 +12,7 @@
         <i class="devicon-linkedin-plain" />
       </a>
       <a class="m-2 md:m-3" href="https://github.com/andrasat">
-        <i class="devicon-github-original-wordmark" />
+        <i class="devicon-github-original" />
       </a>
     </div>
   </footer>
