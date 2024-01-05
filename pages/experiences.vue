@@ -31,8 +31,8 @@ const experiences = [
     companyShortUrl: 'rebelworks.co',
     companyUrl: 'https://www.rebelworks.co/',
     role: 'Junior Developer',
-    startDate: new Date('2018-05-01T00:00:00+07:00'),
-    endDate: new Date('2017-07-01T00:00:00+07:00')
+    startDate: new Date('2017-07-01T00:00:00+07:00'),
+    endDate: new Date('2018-05-01T00:00:00+07:00')
   }
 ]
 </script>
