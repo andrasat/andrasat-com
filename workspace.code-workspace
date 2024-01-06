@@ -1,0 +1,14 @@
+{
+  "folders": [
+    {
+      "path": "."
+    }
+  ],
+  "extensions": {
+    "recommendations": [
+      "vue.volar",
+      "bradlc.vscode-tailwindcss"
+    ]
+  },
+  "settings": {}
+}
