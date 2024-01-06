@@ -1,5 +1,4 @@
 <script setup lang="ts">
-
 // From current to old
 const experiences = [
   {
@@ -46,7 +45,7 @@ const experiences = [
       </TextLink>)
     </h2>
     <ul>
-      <li v-for="experience in experiences" :key="experience.companyName" class="p-4">
+      <li v-for="(experience, index) in experiences" :key="index" class="p-4">
         <VerticalLine />
         <p class="inline pl-4">
           {{ experience.companyName }} - <TextLink :href="experience.companyUrl">
