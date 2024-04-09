@@ -2,19 +2,23 @@
 const navItems = [
   {
     name: 'About',
-    url: '/'
+    url: '/',
+    icon: 'fa-light fa-terminal'
   },
   {
     name: 'Blog',
-    url: '/blog'
+    url: '/blog',
+    icon: 'fa-light fa-blog'
   },
   {
     name: 'Experience',
-    url: '/experiences'
+    url: '/experiences',
+    icon: 'fa-solid fa-user-tie'
   },
   {
     name: 'Contact',
-    url: '#contact'
+    url: '#contact',
+    icon: 'fa-light fa-address-book'
   }
 ]
 </script>
@@ -29,8 +33,8 @@ const navItems = [
   <div id="nav-menu" popover class="animate-fade-in border-2 border-gray-300 rounded-md bg-licorice text-gray-300">
     <ul class="p-1">
       <li v-for="item in navItems" :key="item.name" class="focus:hover:underline p-1">
-        <NuxtLink :to="item.url">
-          {{ item.name }}
+        <NuxtLink :to="item.url" class="inline-block w-full">
+          <i :class="item.icon + ' mr-2'" /> {{ item.name }}
         </NuxtLink>
       </li>
     </ul>
@@ -42,6 +46,7 @@ const navItems = [
   margin: 0;
   position: fixed;
   top: 20px;
-  left: calc(100% - 120px);
+  left: calc(100% - 160px);
+  width: 150px;
 }
 </style>

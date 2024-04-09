@@ -15,8 +15,8 @@ const yoe = Math.floor((NOW.getTime() - START_DEV_WORK.getTime()) / (1000 * 3600
 <template>
   <PageContainer>
     <p class="max-w-lg">
-      Hello World!, My name is Andra Satria. Currently I&apos;m working as a Senior Full Stack Developer at
-      <a ref="noopener noreferrer" href="https://www.base.co.id" target="_blank" class="text-blue-600">BASE</a>.
+      Hello World!, My name is Andra Satria. Now working remotely at&nbsp;
+      <a ref="noopener noreferrer" href="https://jitera.com/" target="_blank" class="text-blue-600">Jitera</a> as Senior Full Stack Developer.
     </p>
     <p class="mt-6 max-w-lg">
       I am a software engineer with {{ yoe }}+ years of experience in developing web apps.
@@ -70,11 +70,11 @@ const yoe = Math.floor((NOW.getTime() - START_DEV_WORK.getTime()) / (1000 * 3600
     </section>
 
     <p class="text-center mt-24">
-      This website is made with
+      Made with
       <br>
-      NuxtJS&nbsp;<i class="devicon-nuxtjs-plain colored ml-2 mr-2" />
-      &amp;
-      TailwindCSS&nbsp;<i class="devicon-tailwindcss-plain colored ml-2 mr-2" />
+      <span class="align-super">Nuxt</span>&nbsp;<i class="devicon-nuxtjs-plain colored" />
+      &nbsp;<span class="align-super">&amp;</span>&nbsp;
+      <span class="align-super">TailwindCSS</span>&nbsp;<i class="devicon-tailwindcss-original colored" />
     </p>
   </PageContainer>
 </template>
