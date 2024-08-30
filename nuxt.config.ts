@@ -3,18 +3,26 @@ import path from 'node:path'
 export default defineNuxtConfig({
   app: {
     head: {
-      link: [{ rel: 'stylesheet', href: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css' }],
+      link: [
+        {
+          rel: 'stylesheet',
+          href: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css'
+        }
+      ],
       script: [{ src: process.env.FA_KIT }]
     }
   },
+
   alias: {
     '~': path.resolve(__dirname),
     '@assets': path.resolve(__dirname, 'assets'),
     '@components': path.resolve(__dirname, 'components')
   },
+
   css: ['~/assets/css/sanitize.css', '~/assets/css/tailwind.css'],
+
   modules: [
-    '@nuxtjs/eslint-module',
+    '@nuxt/eslint',
     [
       '@nuxtjs/google-fonts',
       {
@@ -27,6 +35,8 @@ export default defineNuxtConfig({
         subsets: 'latin'
       }
     ],
-    '@nuxtjs/tailwindcss',
-  ]
+    '@nuxtjs/tailwindcss'
+  ],
+
+  compatibilityDate: '2024-08-31'
 })
