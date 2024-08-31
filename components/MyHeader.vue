@@ -50,11 +50,13 @@ onUnmounted(() => {
         >
       </NuxtLink>
 
-      <h1 class="ml-2 font-mono">
+      <h1 class="ml-2 font-mono font-semibold">
         // andrasat
       </h1>
     </div>
 
-    <HeaderMenu />
+    <ClientOnly>
+      <HeaderMenu />
+    </ClientOnly>
   </header>
 </template>
