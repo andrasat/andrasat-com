@@ -38,11 +38,5 @@ export default defineNuxtConfig({
     '@nuxtjs/tailwindcss'
   ],
 
-  $production: {
-    nitro: {
-      preset: 'vercel'
-    }
-  },
-
   compatibilityDate: '2024-08-31'
 })
