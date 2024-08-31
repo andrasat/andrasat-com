@@ -26,13 +26,13 @@ export default defineNuxtConfig({
     [
       '@nuxtjs/google-fonts',
       {
-        text: 'Hello World',
+        text: 'abcdefghijklmnopqrstuvwxyz',
         families: {
-          'Noto+Sans': [400, 700],
-          'Red+Hat+Mono': [400]
+          'Red Hat Display': [500, 700],
+          'Red Hat Mono': [600]
         },
         display: 'swap',
-        subsets: 'latin'
+        subsets: ['latin']
       }
     ],
     '@nuxtjs/tailwindcss'
