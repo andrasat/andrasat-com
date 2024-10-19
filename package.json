@@ -3,7 +3,7 @@
   "version": "0.0.0-development",
   "repository": {
     "type": "git",
-    "url": "https://github.com/andrasat/andrasat-nuxt.git"
+    "url": "https://github.com/andrasat/andrasat-com.git"
   },
   "engines": {
     "node": "18.x"
