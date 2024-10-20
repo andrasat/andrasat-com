@@ -36,16 +36,30 @@ jobs:
         uses: oven-sh/setup-bun@v1
         with:
           bun-version: 1.0.36
+      - name: Setup Doctl
+        uses: digitalocean/action-doctl@v2
+        with:
+          token: ${{ secrets.DIGITALOCEAN_ACCESS_TOKEN }}
       - name: Install Dependencies
         run: bun install
       - name: Build
         run: bun run build
         env:
           FA_KIT: ${{ secrets.FA_KIT }}
+      - name: Zip Files
+        run: |
+          zip -r public.zip .output/public
+          zip -r server.zip .output/server
       - name: Copy File
         run: |
-          scp -r .output/public $USER@$HOST:/var/www/
-          scp -r .output/server $USER@$HOST:/var/www/
+          scp public.zip $USER@$HOST:/root/
+          scp server.zip $USER@$HOST:/root/
         env:
           HOST: ${{ secrets.HOST }}
           USER: ${{ secrets.USERNAME }}
+      - name: Unzip Files
+        run: |
+          doctl compute ssh $DROPLET_NAME --ssh-command "unzip public.zip -d /var/www/public"
+          doctl compute ssh $DROPLET_NAME --ssh-command "unzip server.zip -d /var/www/server"
+        env:
+          DROPLET_NAME: ${{ secrets.DROPLET_NAME }}
