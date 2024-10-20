@@ -48,8 +48,8 @@ jobs:
           FA_KIT: ${{ secrets.FA_KIT }}
       - name: Zip Files
         run: |
-          cd .output; zip -r public.zip public; cd ..
-          cd .output; zip -r server.zip server; cd ..
+          cd .output; zip -r public.zip public; mv public.zip ../public.zip;  cd ..
+          cd .output; zip -r server.zip server; mv server.zip ../server.zip; cd ..
       - name: Copy File
         run: |
           scp public.zip $USER@$HOST:/root/
