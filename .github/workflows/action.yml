@@ -29,7 +29,7 @@ jobs:
         run: ./scripts/setup_ssh.sh
         env:
           KEY: ${{ secrets.KEY }}
-          SSH_HOST: ${{ secrets.HOST }}
+          HOST: ${{ secrets.HOST }}
       - name: Check SSH
         run: test -e $HOME/.ssh/id_rsa && echo "File OK" || exit 1
       - name: Setup Bun
@@ -40,6 +40,8 @@ jobs:
         run: bun install
       - name: Build
         run: bun run build
+        env:
+          FA_KIT: ${{ secrets.FA_KIT }}
       - name: Copy File
         run: |
           scp -r .output/public $USER@$HOST:/var/www/
