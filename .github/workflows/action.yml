@@ -48,8 +48,8 @@ jobs:
           FA_KIT: ${{ secrets.FA_KIT }}
       - name: Zip Files
         run: |
-          zip -r public.zip .output/public
-          zip -r server.zip .output/server
+          cd .output; zip -r public.zip public; cd ..
+          cd .output; zip -r server.zip server; cd ..
       - name: Copy File
         run: |
           scp public.zip $USER@$HOST:/root/
@@ -61,5 +61,6 @@ jobs:
         run: |
           doctl compute ssh $DROPLET_NAME --ssh-command "unzip public.zip -d /var/www/public"
           doctl compute ssh $DROPLET_NAME --ssh-command "unzip server.zip -d /var/www/server"
+          doctl compute ssh $DROPLET_NAME --ssh-command "rm public.zip server.zip"
         env:
           DROPLET_NAME: ${{ secrets.DROPLET_NAME }}
