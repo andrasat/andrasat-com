@@ -12,8 +12,7 @@ export default defineNuxtConfig({
       script: [
         {
           src: process.env.FA_KIT,
-          async: true,
-          defer: true
+          async: true
         }
       ]
     }
