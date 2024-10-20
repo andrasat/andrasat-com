@@ -59,8 +59,8 @@ jobs:
           USER: ${{ secrets.USERNAME }}
       - name: Unzip Files
         run: |
-          doctl compute ssh $DROPLET_NAME --ssh-command "unzip public.zip -d /var/www/public"
-          doctl compute ssh $DROPLET_NAME --ssh-command "unzip server.zip -d /var/www/server"
+          doctl compute ssh $DROPLET_NAME --ssh-command "unzip -o public.zip -d /var/www/public"
+          doctl compute ssh $DROPLET_NAME --ssh-command "unzip -o server.zip -d /var/www/server"
           doctl compute ssh $DROPLET_NAME --ssh-command "rm public.zip server.zip"
         env:
           DROPLET_NAME: ${{ secrets.DROPLET_NAME }}
