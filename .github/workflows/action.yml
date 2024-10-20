@@ -20,3 +20,30 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
         run: bun run semantic-release
+  Build-And-Deploy-To-Server:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Setup SSH
+        run: ./scripts/setup_ssh.sh
+        env:
+          KEY: ${{ secrets.KEY }}
+          SSH_HOST: ${{ secrets.HOST }}
+      - name: Check SSH
+        run: test -e $HOME/.ssh/id_rsa && echo "File OK" || exit 1
+      - name: Setup Bun
+        uses: oven-sh/setup-bun@v1
+        with:
+          bun-version: 1.0.36
+      - name: Install Dependencies
+        run: bun install
+      - name: Build
+        run: bun run build
+      - name: Copy File
+        run: |
+          scp -r .output/public $USER@$HOST:/var/www/
+          scp -r .output/server $USER@$HOST:/var/www/
+        env:
+          HOST: ${{ secrets.HOST }}
+          USER: ${{ secrets.USERNAME }}
