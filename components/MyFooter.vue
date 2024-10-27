@@ -1,5 +1,5 @@
 <template>
-  <footer class="p-2 md:p-3 mt-24 pb-6 absolute bottom-0 flex flex-col justify-center items-center w-screen">
+  <footer class="p-2 md:p-3 mt-24 pb-6 absolute bottom-0 flex flex-col justify-center items-center w-full">
     <h5 id="contact" class="text-center">
       Contact:
     </h5>
