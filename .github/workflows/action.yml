@@ -33,9 +33,9 @@ jobs:
       - name: Check SSH
         run: test -e $HOME/.ssh/id_rsa && echo "File OK" || exit 1
       - name: Setup Bun
-        uses: oven-sh/setup-bun@v1
+        uses: oven-sh/setup-bun@v2
         with:
-          bun-version: 1.0.36
+          bun-version: latest
       - name: Setup Doctl
         uses: digitalocean/action-doctl@v2
         with:
