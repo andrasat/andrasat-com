@@ -73,5 +73,10 @@
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare",
     "semantic-release": "semantic-release"
+  },
+  "resolutions": {
+    "minimatch": "^9.0.5",
+    "micromatch": "4.0.8",
+    "esbuild": "0.25.0"
   }
 }
