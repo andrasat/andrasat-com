@@ -6,7 +6,7 @@
 
     <div class="mx-auto my-2 md:my-3 flex flex-row">
       <a class="m-2 md:m-3" href="mailto:andra.satria1@gmail.com">
-        <i class="fa-light fa-envelope h-[30px] w-[30px]" />
+        <i class="fa-solid fa-envelope h-[30px] w-[30px]" />
       </a>
       <a class="m-2 md:m-3" href="https://www.linkedin.com/in/andrasat/">
         <i class="fa-brands fa-linkedin h-[30px] w-[30px]" />

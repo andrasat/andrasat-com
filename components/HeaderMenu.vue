@@ -3,12 +3,12 @@ const navItems = [
   {
     name: 'About',
     url: '/',
-    icon: 'fa-light fa-terminal'
+    icon: 'fa-solid fa-terminal'
   },
   {
     name: 'Blog',
     url: '/blog',
-    icon: 'fa-light fa-blog'
+    icon: 'fa-solid fa-blog'
   },
   {
     name: 'Experience',
@@ -18,7 +18,7 @@ const navItems = [
   {
     name: 'Contact',
     url: '#contact',
-    icon: 'fa-light fa-address-book'
+    icon: 'fa-solid fa-address-book'
   }
 ]
 </script>
