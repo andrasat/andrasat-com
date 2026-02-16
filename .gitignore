@@ -12,3 +12,4 @@ dist
 .nuxt-storybook
 storybook-static
 .vercel
+.gemini/

@@ -1,7 +1,7 @@
 <script setup lang="ts">
 useHead({
   bodyAttrs: {
-    class: 'overflow-x-hidden max-h-screen'
+    class: 'overflow-x-hidden'
   }
 })
 </script>
@@ -9,5 +9,6 @@ useHead({
 <template>
   <NuxtLayout>
     <NuxtPage />
+    <KonamiEasterEgg />
   </NuxtLayout>
 </template>

@@ -1,7 +1,9 @@
 <template>
-  <div class="dark:bg-gray-900 dark:text-gray-300 relative pt-16">
+  <div class="bg-licorice text-gray-300 relative min-h-screen font-sans selection:bg-aero selection:text-licorice transition-colors duration-300">
     <MyHeader />
-    <slot />
+    <main class="pt-20">
+      <slot />
+    </main>
     <MyFooter />
   </div>
 </template>

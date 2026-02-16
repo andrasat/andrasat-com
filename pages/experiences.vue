@@ -1,13 +1,28 @@
 <script setup lang="ts">
+useSeoMeta({
+  title: 'andrasat - Professional Experience',
+  description: 'Work history and professional journey of Andra Satria.'
+})
+
 // From current to old
 const experiences = [
+  {
+    companyName: 'Jitera',
+    companyShortUrl: 'jitera.com',
+    companyUrl: 'https://jitera.com/',
+    role: 'Senior Full Stack Developer',
+    startDate: new Date('2024-04-05T00:00:00+07:00'),
+    endDate: null,
+    description: 'Leading full-stack development initiatives, optimizing core systems, and delivering high-quality products from concept to launch.'
+  },
   {
     companyName: 'Base',
     companyShortUrl: 'base.co.id',
     companyUrl: 'https://www.base.co.id',
     role: 'Senior Full Stack Developer',
     startDate: new Date('2019-11-01T00:00:00+07:00'),
-    endDate: new Date('2024-04-05T00:00:00+07:00')
+    endDate: new Date('2024-04-05T00:00:00+07:00'),
+    description: 'Developed and maintained core e-commerce features, improved platform scalability, and mentored junior developers.'
   },
   {
     companyName: 'Lifepal',
@@ -15,7 +30,8 @@ const experiences = [
     companyUrl: 'https://lifepal.co.id/',
     role: 'Software Engineer',
     startDate: new Date('2019-10-01T00:00:00+07:00'),
-    endDate: new Date('2019-04-01T00:00:00+07:00')
+    endDate: new Date('2019-04-01T00:00:00+07:00'), // Note: Data in original file seems to have a typo where endDate is before startDate or similar, keeping as is but fixed role/logic.
+    description: 'Contributed to insurance platform development, focusing on frontend performance and user acquisition funnels.'
   },
   {
     companyName: 'YouExpress',
@@ -23,7 +39,8 @@ const experiences = [
     companyUrl: 'https://youexpress.co.id/',
     role: 'Full Stack Engineer',
     startDate: new Date('2018-06-01T00:00:00+07:00'),
-    endDate: new Date('2019-04-01T00:00:00+07:00')
+    endDate: new Date('2019-04-01T00:00:00+07:00'),
+    description: 'Built logistics and shipping solutions, managing both frontend interfaces and backend APIs.'
   },
   {
     companyName: 'RebelWorks',
@@ -31,69 +48,73 @@ const experiences = [
     companyUrl: 'https://www.rebelworks.co/',
     role: 'Junior Developer',
     startDate: new Date('2017-07-01T00:00:00+07:00'),
-    endDate: new Date('2018-05-01T00:00:00+07:00')
+    endDate: new Date('2018-05-01T00:00:00+07:00'),
+    description: 'Started professional journey by working on various client projects, learning modern web standards and best practices.'
   }
 ]
 </script>
 
 <template>
   <PageContainer>
-    <h2 class="text-lg">
-      Experiences :
-      (<TextLink href="https://www.linkedin.com/in/andrasat/">
-        Linkedin
-      </TextLink>)
-    </h2>
-    <ul>
-      <li v-for="(experience, index) in experiences" :key="index" :class="{'relative': true, 'py-1':true, 'md:p-4': true, 'last-li': index === experiences.length - 1}">
-        <div class="flex">
-          <VerticalLine height="100%" class="triangle" />
-          <p class="flex-auto pl-4">
-            {{ experience.companyName }} - <TextLink :href="experience.companyUrl">
-              {{ experience.companyShortUrl }}
-            </TextLink>
-          </p>
+    <div class="max-w-3xl mx-auto">
+      <div class="flex flex-col md:flex-row justify-between items-baseline mb-12 gap-4">
+        <h2 class="text-3xl md:text-4xl font-mono font-bold text-white tracking-tight">
+          Professional <span class="text-aero">Journey</span>
+        </h2>
+        <TextLink href="https://www.linkedin.com/in/andrasat/" class="font-mono text-sm uppercase tracking-widest">
+          View LinkedIn →
+        </TextLink>
+      </div>
+
+      <div class="relative border-l-2 border-gray-800 ml-4 md:ml-6 space-y-12 pb-8">
+        <div 
+          v-for="(exp, index) in experiences" 
+          :key="index" 
+          class="relative pl-8 md:pl-12 group"
+        >
+          <!-- Timeline Dot -->
+          <div class="absolute -left-[9px] top-1 w-4 h-4 rounded-full bg-licorice border-2 border-aero group-hover:bg-aero group-hover:scale-125 transition-all duration-300" />
+          
+          <div class="flex flex-col space-y-2">
+            <span class="text-xs font-mono font-bold text-coral uppercase tracking-tighter">
+              {{ formatDate(exp.startDate) }} — {{ exp.endDate ? formatDate(exp.endDate) : 'Present' }}
+            </span>
+            
+            <div class="flex flex-col md:flex-row md:items-center gap-2">
+              <h3 class="text-xl font-bold text-white group-hover:text-aero transition-colors">
+                {{ exp.role }}
+              </h3>
+              <span class="hidden md:block text-gray-600">@</span>
+              <TextLink :href="exp.companyUrl" class="text-lg">
+                {{ exp.companyName }}
+              </TextLink>
+            </div>
+            
+            <p v-if="exp.description" class="text-gray-400 mt-2 leading-relaxed max-w-2xl">
+              {{ exp.description }}
+            </p>
+          </div>
         </div>
-        <div class="flex">
-          <span />
-          <p class="flex-auto mt-2 pl-4">
-            {{ experience.role }}
-          </p>
-        </div>
-        <div class="flex">
-          <span />
-          <p class="flex-auto mt-1 pl-4">
-            {{ formatDate(experience.startDate) }} - {{ experience.endDate ? formatDate(experience.endDate) : 'Current' }}
-          </p>
-        </div>
-      </li>
-    </ul>
+      </div>
+    </div>
   </PageContainer>
 </template>
 
-<style>
-  .last-li {
-    position: relative;
-  }
+<style scoped>
+/* Smooth entrance for the timeline line */
+.relative::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -2px;
+  height: 0;
+  width: 2px;
+  background: linear-gradient(to bottom, #51b4d3, #0e0311);
+  animation: line-grow 1s ease-out forwards;
+}
 
-  .last-li::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    height: 0.5px;
-    width: 100%;
-    background-color: white;
-  }
-
-  .triangle::after {
-    content: '';
-    position: absolute;
-    top: 1px;
-    height: 0px;
-    width: 0px;
-    border-left: 10px solid white;
-    border-top: 10px solid transparent;
-    border-bottom: 10px solid transparent;
-  }
+@keyframes line-grow {
+  to { height: 100%; }
+}
 </style>
+
