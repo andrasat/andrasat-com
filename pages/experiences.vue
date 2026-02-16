@@ -73,7 +73,19 @@ const experiences = [
           class="relative pl-8 md:pl-12 group"
         >
           <!-- Timeline Dot -->
-          <div class="absolute -left-[9px] top-1 w-4 h-4 rounded-full bg-licorice border-2 border-aero group-hover:bg-aero group-hover:scale-125 transition-all duration-300" />
+          <div 
+            class="absolute -left-[9px] top-1 w-4 h-4 rounded-full transition-all duration-300 z-10"
+            :class="[
+              index === 0 
+                ? 'bg-aero border-2 border-aero shadow-[0_0_15px_rgba(81,180,211,0.5)] scale-110' 
+                : index === experiences.length - 1
+                  ? 'bg-licorice border-2 border-gray-600 group-hover:border-aero'
+                  : 'bg-licorice border-2 border-aero group-hover:bg-aero group-hover:scale-125'
+            ]"
+          >
+            <!-- Pulse effect for current role -->
+            <div v-if="index === 0" class="absolute inset-0 rounded-full bg-aero animate-ping opacity-75" />
+          </div>
           
           <div class="flex flex-col space-y-2">
             <span class="text-xs font-mono font-bold text-coral uppercase tracking-tighter">
