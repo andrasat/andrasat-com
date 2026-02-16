@@ -40,7 +40,8 @@ export default defineNuxtConfig({
         subsets: ['latin']
       }
     ],
-    '@nuxtjs/tailwindcss'
+    '@nuxtjs/tailwindcss',
+    '@nuxt/content'
   ],
 
   compatibilityDate: '2024-08-31'

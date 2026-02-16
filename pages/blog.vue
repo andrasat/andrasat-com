@@ -4,29 +4,20 @@ useSeoMeta({
   description: 'Thoughts on software engineering, technology, and life.'
 })
 
-const posts = [
-  {
-    title: 'Building Scalable Full-Stack Applications in 2024',
-    excerpt: 'Exploring the latest trends and best practices for modern web development.',
-    date: 'Oct 24, 2024',
-    category: 'Engineering',
-    readTime: '5 min'
-  },
-  {
-    title: 'Why I Switched to Nuxt 3 for my Portfolio',
-    excerpt: 'A deep dive into the performance benefits and developer experience of Nuxt 3.',
-    date: 'Sep 12, 2024',
-    category: 'Web Dev',
-    readTime: '3 min'
-  },
-  {
-    title: 'The Art of Remote Work: Staying Productive',
-    excerpt: 'Tips and tricks for maintaining a healthy work-life balance while working from anywhere.',
-    date: 'Aug 05, 2024',
-    category: 'Lifestyle',
-    readTime: '4 min'
-  }
-]
+// Fetch blog posts from @nuxt/content
+const { data: posts } = await useAsyncData('blog-posts', () => 
+  queryContent('/blog')
+    .sort({ date: -1 }) // Sort by date descending
+    .find()
+)
+
+function formatDate (dateString: string) {
+  return new Date(dateString).toLocaleDateString('en-US', {
+    year: 'numeric',
+    month: 'short',
+    day: 'numeric'
+  })
+}
 </script>
 
 <template>
@@ -41,10 +32,11 @@ const posts = [
         </p>
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-        <div 
+      <div v-if="posts && posts.length" class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <NuxtLink 
           v-for="post in posts" 
-          :key="post.title"
+          :key="post._path"
+          :to="post._path"
           class="group p-6 rounded-2xl bg-gray-800/40 border border-gray-700/50 hover:border-aero/50 hover:bg-gray-800/60 transition-all duration-300 flex flex-col justify-between"
         >
           <div>
@@ -58,21 +50,25 @@ const posts = [
               {{ post.title }}
             </h3>
             <p class="text-gray-400 text-sm leading-relaxed line-clamp-2">
-              {{ post.excerpt }}
+              {{ post.description }}
             </p>
           </div>
           
           <div class="mt-6 flex items-center justify-between">
-            <span class="text-xs text-gray-500">{{ post.date }}</span>
-            <span class="text-aero text-sm font-bold opacity-0 group-hover:opacity-100 transition-opacity">
+            <span class="text-xs text-gray-500">{{ formatDate(post.date) }}</span>
+            <span class="text-aero text-sm font-bold group-hover:translate-x-1 transition-transform">
               Read More →
             </span>
           </div>
-        </div>
+        </NuxtLink>
+      </div>
+
+      <div v-else class="text-center py-20 border border-dashed border-gray-700 rounded-2xl">
+        <p class="text-gray-500 font-mono">No posts found yet. Check back soon!</p>
       </div>
 
       <!-- Maintenance Footer -->
-      <div class="mt-20 p-8 rounded-2xl border border-dashed border-gray-700 text-center bg-gray-900/50">
+      <div v-if="posts && posts.length" class="mt-20 p-8 rounded-2xl border border-dashed border-gray-700 text-center bg-gray-900/50">
         <p class="text-gray-500 font-mono italic">
           More articles coming soon. I'm currently migrating my old blog posts here...
         </p>
