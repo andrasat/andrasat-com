@@ -6,8 +6,6 @@ category: 'Web Dev'
 readTime: '3 min'
 ---
 
-# Why I Switched to Nuxt 3 for my Portfolio
-
 When I decided to rebuild my personal website, I had several options on the table. However, **Nuxt 3** quickly became the clear winner. Here is why.
 
 ## Performance by Default

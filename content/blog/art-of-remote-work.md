@@ -6,8 +6,6 @@ category: 'Lifestyle'
 readTime: '4 min'
 ---
 
-# The Art of Remote Work: Staying Productive
-
 Working remotely is a dream for many, but it comes with its own set of challenges. Having worked remotely for several years, I've learned that productivity isn't about working more; it's about working smarter.
 
 ## 1. Create a Dedicated Workspace
