@@ -32,7 +32,7 @@ const skillCategories = [
     icons: [
       { class: 'devicon-typescript-plain colored', name: 'TypeScript' },
       { class: 'devicon-javascript-plain colored', name: 'JavaScript' },
-      { class: 'devicon-go-original-wordmark colored', name: 'Go' },
+      { class: 'devicon-go-plain colored', name: 'Go' },
       { class: 'devicon-rust-plain', name: 'Rust' }
     ]
   },
@@ -52,10 +52,10 @@ const skillCategories = [
     name: 'Cloud & DB',
     icons: [
       { class: 'devicon-googlecloud-plain colored', name: 'GCP' },
-      { class: 'devicon-amazonwebservices-original colored', name: 'AWS' },
       { class: 'devicon-postgresql-plain colored', name: 'PostgreSQL' },
       { class: 'devicon-mysql-plain colored', name: 'MySQL' },
-      { class: 'devicon-mongodb-plain-wordmark colored', name: 'MongoDB' }
+      { class: 'devicon-mongodb-plain colored', name: 'MongoDB' },
+      { class: 'devicon-amazonwebservices-plain-wordmark colored', name: 'AWS' }
     ]
   }
 ]

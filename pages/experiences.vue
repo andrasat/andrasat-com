@@ -121,7 +121,7 @@ const experiences = [
   left: -2px;
   height: 0;
   width: 2px;
-  background: linear-gradient(to bottom, #51b4d3, #0e0311);
+  background: #51b4d3;
   animation: line-grow 1s ease-out forwards;
 }
 
