@@ -154,6 +154,9 @@ else
   echo "OK: symlink created: $ENABLED -> $AVAILABLE"
 fi
 
+step "Ensuring proxy cache directory"
+dry mkdir -p /var/cache/nginx/andrasat-static
+
 # ──────────────────────────────────────────────────
 if $DISABLE_DEFAULT; then
   step "Disabling default site"
