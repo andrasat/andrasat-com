@@ -54,8 +54,6 @@ jobs:
         run: bun install
       - name: Build
         run: bun run build
-        env:
-          FA_KIT: ${{ secrets.FA_KIT }}
       - name: Zip Files
         run: |
           cd .output; zip -r public.zip public; mv public.zip ../public.zip;  cd ..
