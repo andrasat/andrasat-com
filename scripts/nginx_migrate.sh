@@ -27,8 +27,8 @@ usage() {
   exit 0
 }
 
-for arg in "$@"; do
-  case $arg in
+while [ $# -gt 0 ]; do
+  case $1 in
     --config)
       SITE_CONFIG="${2:-}"
       shift 2
@@ -45,7 +45,7 @@ for arg in "$@"; do
       usage
       ;;
     *)
-      echo "Unknown option: $arg"
+      echo "Unknown option: $1"
       usage
       ;;
   esac
