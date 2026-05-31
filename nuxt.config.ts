@@ -8,12 +8,6 @@ export default defineNuxtConfig({
           rel: 'stylesheet',
           href: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css'
         }
-      ],
-      script: [
-        {
-          src: process.env.FA_KIT,
-          async: true
-        }
       ]
     }
   },

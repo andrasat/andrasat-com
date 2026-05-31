@@ -1,29 +1,27 @@
 <script setup lang="ts">
+import { PhTerminalWindow, PhArticle, PhBriefcase, PhScales, PhEnvelopeSimple } from '@phosphor-icons/vue'
+
 const navItems = [
   {
     name: 'About',
-    url: '/',
-    icon: 'fa-solid fa-terminal'
+    url: '/'
   },
   {
     name: 'Blog',
-    url: '/blog',
-    icon: 'fa-solid fa-blog'
+    url: '/blog'
   },
   {
     name: 'Experience',
-    url: '/experiences',
-    icon: 'fa-solid fa-user-tie'
+    url: '/experiences'
   },
   {
     name: 'Legal',
-    url: '/legal',
-    icon: 'fa-solid fa-scale-balanced'
+    url: '/legal'
   },
   {
     name: 'Contact',
     url: '#contact',
-    icon: 'fa-solid fa-address-book'
+    mobileOnly: true
   }
 ]
 </script>
@@ -44,12 +42,16 @@ const navItems = [
 
     <div id="nav-menu" popover class="backdrop-blur-xl bg-licorice/90 text-gray-300 border border-gray-700 rounded-xl shadow-2xl p-2 animate-fade-in ring-1 ring-white/10">
       <ul class="flex flex-col gap-1 w-48">
-        <li v-for="item in navItems" :key="item.name">
+        <li v-for="item in navItems" :key="item.name" :class="{ 'md:hidden': item.mobileOnly }">
           <NuxtLink 
             :to="item.url" 
             class="flex items-center px-4 py-3 rounded-lg hover:bg-white/10 transition-colors group"
           >
-            <i :class="[item.icon, 'w-6 text-aero group-hover:scale-120 transition-transform duration-300']" />
+            <PhTerminalWindow v-if="item.name === 'About'" :size="20" class="text-aero group-hover:scale-110 transition-transform duration-300" />
+            <PhArticle v-else-if="item.name === 'Blog'" :size="20" class="text-aero group-hover:scale-110 transition-transform duration-300" />
+            <PhBriefcase v-else-if="item.name === 'Experience'" :size="20" class="text-aero group-hover:scale-110 transition-transform duration-300" />
+            <PhScales v-else-if="item.name === 'Legal'" :size="20" class="text-aero group-hover:scale-110 transition-transform duration-300" />
+            <PhEnvelopeSimple v-else-if="item.name === 'Contact'" :size="20" class="text-aero group-hover:scale-110 transition-transform duration-300" />
             <span class="ml-3 font-medium">{{ item.name }}</span>
           </NuxtLink>
         </li>
