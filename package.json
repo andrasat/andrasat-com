@@ -15,6 +15,7 @@
     "ajv": "^8.17.1",
     "eslint": "^9.9.1",
     "husky": "^8.0.3",
+    "impeccable": "^2.3.2",
     "lint-staged": "^14.0.1",
     "nuxt": "^3.21.1",
     "semantic-release": "^22.0.12",
@@ -25,7 +26,7 @@
     "node": "18.x"
   },
   "lint-staged": {
-    "*.{js,ts,vue}": "eslint"
+    "*.{js,ts,vue}": ["eslint", "impeccable detect"]
   },
   "private": true,
   "publishConfig": {
@@ -69,6 +70,7 @@
     "build": "nuxt build",
     "dev": "nuxt dev",
     "lint": "eslint --ext .ts,.js,.vue --ignore-path .gitignore .",
+    "lint:design": "impeccable detect components/ pages/ layouts/",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare",
