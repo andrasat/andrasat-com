@@ -16,6 +16,11 @@ const navItems = [
     icon: 'fa-solid fa-user-tie'
   },
   {
+    name: 'Legal',
+    url: '/legal',
+    icon: 'fa-solid fa-scale-balanced'
+  },
+  {
     name: 'Contact',
     url: '#contact',
     icon: 'fa-solid fa-address-book'

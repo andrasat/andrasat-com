@@ -32,6 +32,17 @@ const year = new Date().getFullYear()
         <p class="text-xs font-mono text-gray-600">
           Built with precision using Nuxt & Tailwind.
         </p>
+        <div class="flex flex-wrap justify-center md:justify-end gap-3 pt-1">
+          <NuxtLink class="text-xs text-gray-400 hover:text-aero transition-colors" to="/privacy-policy">
+            Privacy
+          </NuxtLink>
+          <NuxtLink class="text-xs text-gray-400 hover:text-aero transition-colors" to="/terms-of-service">
+            Terms
+          </NuxtLink>
+          <NuxtLink class="text-xs text-gray-400 hover:text-aero transition-colors" to="/compliance">
+            Compliance
+          </NuxtLink>
+        </div>
       </div>
     </div>
     
