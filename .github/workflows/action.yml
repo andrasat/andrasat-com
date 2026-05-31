@@ -77,11 +77,13 @@ jobs:
       - name: Copy nginx migration files
         if: steps.nginx.outputs.nginx == 'true'
         run: |
-          scp -r configs/nginx $USER@$HOST:/root/nginx-config/
+          doctl compute ssh $DROPLET_NAME --ssh-command "mkdir -p /root/nginx-config"
+          scp -r configs/nginx/* $USER@$HOST:/root/nginx-config/
           scp scripts/nginx_migrate.sh $USER@$HOST:/root/
         env:
           HOST: ${{ secrets.HOST }}
           USER: ${{ secrets.USERNAME }}
+          DROPLET_NAME: ${{ secrets.DROPLET_NAME }}
       - name: Run nginx migration
         if: steps.nginx.outputs.nginx == 'true'
         run: |
