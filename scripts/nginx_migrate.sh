@@ -155,6 +155,19 @@ else
 fi
 
 # ──────────────────────────────────────────────────
+if $DISABLE_DEFAULT; then
+  step "Disabling default site"
+  DEFAULT_FILE="/etc/nginx/sites-enabled/default"
+
+  if [ -e "$DEFAULT_FILE" ]; then
+    dry rm "$DEFAULT_FILE"
+    echo "OK: removed $DEFAULT_FILE"
+  else
+    echo "OK: default site was already removed"
+  fi
+fi
+
+# ──────────────────────────────────────────────────
 # Test + reload
 # ──────────────────────────────────────────────────
 step "Testing nginx configuration"
@@ -165,27 +178,6 @@ fi
 
 step "Reloading nginx"
 dry systemctl reload nginx
-
-# ──────────────────────────────────────────────────
-# Optionally disable default site
-# ──────────────────────────────────────────────────
-if $DISABLE_DEFAULT; then
-  step "Disabling default site"
-  DEFAULT_FILE="/etc/nginx/sites-enabled/default"
-
-  if [ -e "$DEFAULT_FILE" ]; then
-    dry rm "$DEFAULT_FILE"
-    echo "OK: removed $DEFAULT_FILE"
-
-    step "Retesting nginx after default removal"
-    if ! $DRY_RUN; then
-      nginx -t
-    fi
-    dry systemctl reload nginx
-  else
-    echo "OK: default site was already removed"
-  fi
-fi
 
 # ──────────────────────────────────────────────────
 # Summary
