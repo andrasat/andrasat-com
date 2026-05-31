@@ -25,6 +25,8 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
+        with:
+          fetch-depth: 2
       - name: Setup SSH
         run: ./scripts/setup_ssh.sh
         env:
@@ -40,6 +42,14 @@ jobs:
         uses: digitalocean/action-doctl@v2
         with:
           token: ${{ secrets.DIGITALOCEAN_ACCESS_TOKEN }}
+      - name: Detect nginx changes
+        id: nginx
+        uses: dorny/paths-filter@v3
+        with:
+          filters: |
+            nginx:
+              - 'configs/nginx/**'
+              - 'scripts/nginx_migrate.sh'
       - name: Install Dependencies
         run: bun install
       - name: Build
@@ -50,17 +60,31 @@ jobs:
         run: |
           cd .output; zip -r public.zip public; mv public.zip ../public.zip;  cd ..
           cd .output; zip -r server.zip server; mv server.zip ../server.zip; cd ..
-      - name: Copy File
+      - name: Copy App Files
         run: |
           scp public.zip $USER@$HOST:/root/
           scp server.zip $USER@$HOST:/root/
         env:
           HOST: ${{ secrets.HOST }}
           USER: ${{ secrets.USERNAME }}
-      - name: Unzip Files
+      - name: Unzip App Files
         run: |
           doctl compute ssh $DROPLET_NAME --ssh-command "unzip -o public.zip -d /var/www"
           doctl compute ssh $DROPLET_NAME --ssh-command "unzip -o server.zip -d /var/www"
           doctl compute ssh $DROPLET_NAME --ssh-command "rm public.zip server.zip"
+        env:
+          DROPLET_NAME: ${{ secrets.DROPLET_NAME }}
+      - name: Copy nginx migration files
+        if: steps.nginx.outputs.nginx == 'true'
+        run: |
+          scp -r configs/nginx $USER@$HOST:/root/nginx-config/
+          scp scripts/nginx_migrate.sh $USER@$HOST:/root/
+        env:
+          HOST: ${{ secrets.HOST }}
+          USER: ${{ secrets.USERNAME }}
+      - name: Run nginx migration
+        if: steps.nginx.outputs.nginx == 'true'
+        run: |
+          doctl compute ssh $DROPLET_NAME --ssh-command "bash /root/nginx_migrate.sh --config /root/nginx-config/andrasat.com.conf --disable-default"
         env:
           DROPLET_NAME: ${{ secrets.DROPLET_NAME }}
