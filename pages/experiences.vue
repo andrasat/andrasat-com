@@ -83,8 +83,8 @@ const experiences = [
                   : 'bg-licorice border-2 border-aero group-hover:bg-aero group-hover:scale-125'
             ]"
           >
-            <!-- Pulse effect for current role -->
-            <div v-if="index === 0" class="absolute inset-0 rounded-full bg-aero animate-ping opacity-75" />
+            <!-- Glow effect for current role -->
+            <div v-if="index === 0" class="absolute inset-0 rounded-full bg-aero/30 ring-2 ring-aero/50" />
           </div>
           
           <div class="flex flex-col space-y-2">
@@ -121,7 +121,7 @@ const experiences = [
   left: -2px;
   height: 0;
   width: 2px;
-  background: #51b4d3;
+  @apply bg-aero;
   animation: line-grow 1s ease-out forwards;
 }
 

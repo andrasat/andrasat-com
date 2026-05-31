@@ -1,5 +1,5 @@
 <template>
-  <div class="mt-6 p-2 md:p-4 pb-16 m-auto w-[90vw] md:w-[80vw] font-sans font-medium">
+  <div class="mt-6 px-4 md:px-6 pb-16 mx-auto max-w-7xl w-full font-sans font-medium">
     <slot />
   </div>
 </template>

@@ -5,7 +5,7 @@ const year = new Date().getFullYear()
 </script>
 
 <template>
-  <footer class="p-8 md:p-12 border-t border-gray-800 bg-licorice/50 backdrop-blur-sm relative">
+  <footer class="pt-8 px-8 md:pt-12 md:px-12 border-t border-gray-800 bg-licorice/50 backdrop-blur-sm relative" style="padding-bottom: max(2rem, env(safe-area-inset-bottom))">
     <div class="max-w-4xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
       <div class="space-y-4 text-center md:text-left">
         <h5 id="contact" class="text-white font-mono font-bold text-xl flex items-center justify-center md:justify-start">
@@ -35,13 +35,13 @@ const year = new Date().getFullYear()
           Built with precision using Nuxt & Tailwind.
         </p>
         <div class="flex flex-wrap justify-center md:justify-end gap-3 pt-1">
-          <NuxtLink class="text-xs text-gray-400 hover:text-aero transition-colors" to="/privacy-policy">
+          <NuxtLink class="text-xs text-gray-400 hover:text-aero transition-colors" to="/privacy-policy" aria-label="Privacy Policy — Yifa">
             Privacy
           </NuxtLink>
-          <NuxtLink class="text-xs text-gray-400 hover:text-aero transition-colors" to="/terms-of-service">
+          <NuxtLink class="text-xs text-gray-400 hover:text-aero transition-colors" to="/terms-of-service" aria-label="Terms of Service — Yifa">
             Terms
           </NuxtLink>
-          <NuxtLink class="text-xs text-gray-400 hover:text-aero transition-colors" to="/compliance">
+          <NuxtLink class="text-xs text-gray-400 hover:text-aero transition-colors" to="/compliance" aria-label="Compliance Notice — Yifa">
             Compliance
           </NuxtLink>
         </div>

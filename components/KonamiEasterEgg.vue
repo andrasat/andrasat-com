@@ -46,7 +46,7 @@ onUnmounted(() => {
 </script>
 
 <template>
-  <div v-if="isActive" class="fixed bottom-4 right-4 z-[100] animate-bounce">
+  <div v-if="isActive" class="fixed bottom-4 right-4 z-[100] animate-slide-up">
     <div class="bg-green-500 text-black px-4 py-2 rounded-full font-mono font-bold shadow-lg border-2 border-white">
       TERMINAL MODE: ON
     </div>
@@ -64,5 +64,14 @@ onUnmounted(() => {
 
 .terminal-mode img {
   filter: grayscale(1) contrast(2);
+}
+
+@keyframes slide-up {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-slide-up {
+  animation: slide-up 300ms cubic-bezier(0.25, 1, 0.5, 1) forwards;
 }
 </style>

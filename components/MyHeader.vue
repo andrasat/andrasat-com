@@ -1,17 +1,23 @@
 <script setup lang="ts">
 const isScrolled = ref(false)
+let rafId: number | null = null
 
 function onScroll () {
-  isScrolled.value = window.scrollY > 20
+  if (rafId) return
+  rafId = requestAnimationFrame(() => {
+    isScrolled.value = window.scrollY > 20
+    rafId = null
+  })
 }
 
 onMounted(() => {
-  window.addEventListener('scroll', onScroll)
+  window.addEventListener('scroll', onScroll, { passive: true })
   onScroll()
 })
 
 onUnmounted(() => {
   window.removeEventListener('scroll', onScroll)
+  if (rafId) cancelAnimationFrame(rafId)
 })
 </script>
 
@@ -29,6 +35,7 @@ onUnmounted(() => {
             height="48"
             width="48"
             class="object-cover"
+            loading="lazy"
           >
         </div>
         <h1 class="ml-3 font-mono font-bold text-xl tracking-tight text-white group-hover:text-aero transition-colors duration-300">

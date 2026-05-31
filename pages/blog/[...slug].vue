@@ -48,7 +48,7 @@ useSeoMeta({
       <footer class="mt-20 pt-10 border-t border-gray-800">
         <div class="flex flex-col md:flex-row justify-between items-center gap-6">
           <div class="flex items-center group">
-            <img src="~/assets/images/andrasat_icon.png" alt="Andra Satria" class="w-12 h-12 rounded-full mr-4 border border-gray-700 group-hover:border-aero transition-colors">
+            <img src="~/assets/images/andrasat_icon.png" alt="Andra Satria" width="48" height="48" loading="lazy" class="w-12 h-12 rounded-full mr-4 border border-gray-700 group-hover:border-aero transition-colors">
             <div>
               <p class="text-white font-bold">Andra Satria</p>
               <p class="text-gray-500 text-sm">Senior Full Stack Developer</p>
@@ -81,6 +81,6 @@ useSeoMeta({
   @apply text-white;
 }
 .prose blockquote {
-  @apply border-l-4 border-aero pl-4 italic text-gray-400;
+  @apply border border-gray-700 rounded-lg px-5 py-3 italic text-gray-400 bg-gray-800/20 my-6;
 }
 </style>

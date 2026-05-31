@@ -40,21 +40,27 @@ const legalPages = [
         </p>
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div class="divide-y divide-gray-800">
         <NuxtLink
-          v-for="page in legalPages"
+          v-for="(page, index) in legalPages"
           :key="page.to"
           :to="page.to"
-          class="group p-6 rounded-2xl bg-gray-800/40 border border-gray-700/50 hover:border-aero/50 hover:bg-gray-800/60 transition-all duration-300"
+          :aria-label="`${page.title} — ${page.description}`"
+          class="group flex flex-col md:flex-row md:items-center gap-3 md:gap-8 py-6 first:pt-0 last:pb-0 hover:bg-gray-800/20 -mx-4 px-4 rounded-lg transition-colors duration-200"
         >
-          <h3 class="text-xl font-bold text-white mb-2 group-hover:text-aero transition-colors">
-            {{ page.title }}
-          </h3>
-          <p class="text-sm text-gray-400 leading-relaxed mb-4">
-            {{ page.description }}
-          </p>
-          <span class="text-aero text-sm font-bold group-hover:translate-x-1 transition-transform inline-block">
-            Open →
+          <span class="font-mono text-sm text-gray-600 w-6 shrink-0" aria-hidden="true">
+            {{ String(index + 1).padStart(2, '0') }}
+          </span>
+          <div class="flex-1 min-w-0">
+            <h3 class="text-lg font-bold text-white group-hover:text-aero transition-colors mb-1">
+              {{ page.title }}
+            </h3>
+            <p class="text-sm text-gray-400 leading-relaxed">
+              {{ page.description }}
+            </p>
+          </div>
+          <span class="text-aero text-sm font-bold group-hover:translate-x-1 transition-transform shrink-0" aria-hidden="true">
+            View →
           </span>
         </NuxtLink>
       </div>

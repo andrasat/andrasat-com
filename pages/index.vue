@@ -13,14 +13,22 @@ const yoe = Math.floor((NOW.getTime() - START_DEV_WORK.getTime()) / (1000 * 3600
 const typedText = ref('')
 const fullText = 'Hello World!, My name is Andra Satria.'
 const typingSpeed = 100
+const typingComplete = ref(false)
 
 onMounted(() => {
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    typedText.value = fullText
+    typingComplete.value = true
+    return
+  }
   let i = 0
   const typeWriter = () => {
     if (i < fullText.length) {
       typedText.value += fullText.charAt(i)
       i++
       setTimeout(typeWriter, typingSpeed)
+    } else {
+      typingComplete.value = true
     }
   }
   typeWriter()
@@ -66,7 +74,7 @@ const skillCategories = [
     <div class="flex flex-col items-center md:items-start space-y-8 animate-fade-in">
       <div class="min-h-[60px]">
         <h2 class="text-3xl md:text-5xl font-mono font-bold text-white tracking-tighter">
-          {{ typedText }}<span class="animate-pulse text-aero">_</span>
+          {{ typedText }}<span class="text-aero" :class="{ 'animate-pulse': !typingComplete }">_</span>
         </h2>
       </div>
 
