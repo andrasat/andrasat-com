@@ -33,6 +33,7 @@ jobs:
         env:
           KEY: ${{ secrets.KEY }}
           HOST: ${{ secrets.HOST }}
+          SSH_PASSPHRASE: ${{ secrets.SSH_PASSPHRASE }}
       - name: Check SSH
         run: test -e $HOME/.ssh/id_rsa && echo "File OK" || exit 1
       - name: Setup Bun
