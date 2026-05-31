@@ -1,5 +1,6 @@
 name: Andrasat Nuxt - Release
 run-name: ${{ github.actor }} is building... 🚀
+# Trigger test after secret rotation
 on:
   push:
     branches:
