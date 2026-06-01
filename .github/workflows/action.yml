@@ -1,6 +1,5 @@
 name: Andrasat Nuxt - Release
 run-name: ${{ github.actor }} is building... 🚀
-# Trigger test after secret rotation
 on:
   push:
     branches:
@@ -33,17 +32,13 @@ jobs:
         env:
           KEY: ${{ secrets.KEY }}
           HOST: ${{ secrets.HOST }}
+          USERNAME: ${{ secrets.USERNAME }}
           SSH_PASSPHRASE: ${{ secrets.SSH_PASSPHRASE }}
-      - name: Check SSH
-        run: test -e $HOME/.ssh/id_rsa && echo "File OK" || exit 1
+          SSH_HOST_KEY: ${{ secrets.SSH_HOST_KEY }}
       - name: Setup Bun
         uses: oven-sh/setup-bun@v2
         with:
           bun-version: latest
-      - name: Setup Doctl
-        uses: digitalocean/action-doctl@v2
-        with:
-          token: ${{ secrets.DIGITALOCEAN_ACCESS_TOKEN }}
       - name: Detect nginx changes
         id: nginx
         uses: dorny/paths-filter@v3
@@ -62,31 +57,18 @@ jobs:
           cd .output; zip -r server.zip server; mv server.zip ../server.zip; cd ..
       - name: Copy App Files
         run: |
-          scp public.zip $USER@$HOST:/root/
-          scp server.zip $USER@$HOST:/root/
-        env:
-          HOST: ${{ secrets.HOST }}
-          USER: ${{ secrets.USERNAME }}
+          scp public.zip vps:~/
+          scp server.zip vps:~/
       - name: Unzip App Files
         run: |
-          doctl compute ssh $DROPLET_NAME --ssh-command "unzip -o public.zip -d /var/www"
-          doctl compute ssh $DROPLET_NAME --ssh-command "unzip -o server.zip -d /var/www"
-          doctl compute ssh $DROPLET_NAME --ssh-command "rm public.zip server.zip"
-        env:
-          DROPLET_NAME: ${{ secrets.DROPLET_NAME }}
+          ssh vps "sudo unzip -o ~/public.zip -d /var/www && sudo unzip -o ~/server.zip -d /var/www && rm ~/public.zip ~/server.zip"
       - name: Copy nginx migration files
         if: steps.nginx.outputs.nginx == 'true'
         run: |
-          doctl compute ssh $DROPLET_NAME --ssh-command "mkdir -p /root/nginx-config"
-          scp -r configs/nginx/* $USER@$HOST:/root/nginx-config/
-          scp scripts/nginx_migrate.sh $USER@$HOST:/root/
-        env:
-          HOST: ${{ secrets.HOST }}
-          USER: ${{ secrets.USERNAME }}
-          DROPLET_NAME: ${{ secrets.DROPLET_NAME }}
+          ssh vps "mkdir -p ~/nginx-config"
+          scp -r configs/nginx/* vps:~/nginx-config/
+          scp scripts/nginx_migrate.sh vps:~/
       - name: Run nginx migration
         if: steps.nginx.outputs.nginx == 'true'
         run: |
-          doctl compute ssh $DROPLET_NAME --ssh-command "bash /root/nginx_migrate.sh --config /root/nginx-config/andrasat.com.conf --disable-default"
-        env:
-          DROPLET_NAME: ${{ secrets.DROPLET_NAME }}
+          ssh vps "sudo bash ~/nginx_migrate.sh --config ~/nginx-config/andrasat.com.conf --disable-default"
