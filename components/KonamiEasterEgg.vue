@@ -23,17 +23,10 @@ const handleKeydown = (e: KeyboardEvent) => {
 }
 
 const activateEasterEgg = () => {
-  isActive.value = true
-  document.documentElement.classList.toggle('terminal-mode')
-  
-  // Play a sound if possible or just show a notification
-  console.log('🎮 Konami Code Activated! Welcome to Terminal Mode.')
-  
-  setTimeout(() => {
-    if (isActive.value) {
-      alert('🎮 Konami Code Activated! Terminal Mode Engaged.')
-    }
-  }, 100)
+  isActive.value = document.documentElement.classList.toggle('terminal-mode')
+  console.log(isActive.value
+    ? '🎮 Konami Code Activated! Welcome to Terminal Mode.'
+    : '🎮 Terminal Mode Disengaged.')
 }
 
 onMounted(() => {

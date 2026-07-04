@@ -29,8 +29,8 @@ const experiences = [
     companyShortUrl: 'lifepal.co.id',
     companyUrl: 'https://lifepal.co.id/',
     role: 'Software Engineer',
-    startDate: new Date('2019-10-01T00:00:00+07:00'),
-    endDate: new Date('2019-04-01T00:00:00+07:00'), // Note: Data in original file seems to have a typo where endDate is before startDate or similar, keeping as is but fixed role/logic.
+    startDate: new Date('2019-04-01T00:00:00+07:00'),
+    endDate: new Date('2019-10-01T00:00:00+07:00'),
     description: 'Contributed to insurance platform development, focusing on frontend performance and user acquisition funnels.'
   },
   {
@@ -66,10 +66,10 @@ const experiences = [
         </TextLink>
       </div>
 
-      <div class="relative border-l-2 border-gray-800 ml-4 md:ml-6 space-y-12 pb-8">
+      <div class="timeline relative border-l-2 border-gray-800 ml-4 md:ml-6 space-y-12 pb-8">
         <div 
-          v-for="(exp, index) in experiences" 
-          :key="index" 
+          v-for="(exp, index) in experiences"
+          :key="exp.companyName"
           class="relative pl-8 md:pl-12 group"
         >
           <!-- Timeline Dot -->
@@ -114,7 +114,7 @@ const experiences = [
 
 <style scoped>
 /* Smooth entrance for the timeline line */
-.relative::before {
+.timeline::before {
   content: '';
   position: absolute;
   top: 0;

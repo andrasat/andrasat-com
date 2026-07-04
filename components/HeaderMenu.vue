@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { PhTerminalWindow, PhArticle, PhBriefcase, PhScales, PhEnvelopeSimple } from '@phosphor-icons/vue'
+import { PhTerminalWindow, PhBriefcase, PhScales, PhEnvelopeSimple } from '@phosphor-icons/vue'
 
 const route = useRoute()
 const isCurrentPage = (url: string) => {
@@ -12,10 +12,6 @@ const navItems = [
   {
     name: 'About',
     url: '/'
-  },
-  {
-    name: 'Blog',
-    url: '/blog'
   },
   {
     name: 'Experience',
@@ -57,7 +53,6 @@ const navItems = [
             class="flex items-center px-4 py-3 rounded-lg hover:bg-white/10 transition-colors group"
           >
             <PhTerminalWindow v-if="item.name === 'About'" :size="20" class="text-aero group-hover:scale-110 transition-transform duration-300" />
-            <PhArticle v-else-if="item.name === 'Blog'" :size="20" class="text-aero group-hover:scale-110 transition-transform duration-300" />
             <PhBriefcase v-else-if="item.name === 'Experience'" :size="20" class="text-aero group-hover:scale-110 transition-transform duration-300" />
             <PhScales v-else-if="item.name === 'Legal'" :size="20" class="text-aero group-hover:scale-110 transition-transform duration-300" />
             <PhEnvelopeSimple v-else-if="item.name === 'Contact'" :size="20" class="text-aero group-hover:scale-110 transition-transform duration-300" />

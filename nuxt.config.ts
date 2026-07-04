@@ -25,7 +25,6 @@ export default defineNuxtConfig({
     [
       '@nuxtjs/google-fonts',
       {
-        text: 'abcdefghijklmnopqrstuvwxyz',
         families: {
           'Red Hat Display': [500, 700],
           'Red Hat Mono': [600]
@@ -34,8 +33,7 @@ export default defineNuxtConfig({
         subsets: ['latin']
       }
     ],
-    '@nuxtjs/tailwindcss',
-    '@nuxt/content'
+    '@nuxtjs/tailwindcss'
   ],
 
   compatibilityDate: '2024-08-31'
