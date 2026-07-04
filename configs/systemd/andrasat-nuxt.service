@@ -1,0 +1,19 @@
+[Unit]
+Description=andrasat.com Nuxt (Nitro) server
+After=network.target
+
+[Service]
+Type=simple
+User=__RUN_USER__
+WorkingDirectory=/var/www/server
+ExecStart=__NODE_BIN__ /var/www/server/index.mjs
+Environment=NODE_ENV=production
+Environment=NITRO_PORT=3000
+Environment=NITRO_HOST=127.0.0.1
+Restart=always
+RestartSec=5
+NoNewPrivileges=true
+PrivateTmp=true
+
+[Install]
+WantedBy=multi-user.target

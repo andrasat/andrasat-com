@@ -63,6 +63,10 @@ jobs:
       - name: Unzip App Files
         run: |
           ssh vps "sudo unzip -o ~/public.zip -d /var/www && sudo unzip -o ~/server.zip -d /var/www && rm ~/public.zip ~/server.zip"
+      - name: Restart App Service
+        run: |
+          scp configs/systemd/andrasat-nuxt.service scripts/deploy_app.sh vps:~/
+          ssh vps "sudo bash ~/deploy_app.sh && rm -f ~/deploy_app.sh"
       - name: Copy nginx migration files
         if: steps.nginx.outputs.nginx == 'true'
         run: |
