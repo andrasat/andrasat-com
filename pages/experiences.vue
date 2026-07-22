@@ -4,7 +4,6 @@ useSeoMeta({
   description: 'Work history and professional journey of Andra Satria.'
 })
 
-// From current to old
 const experiences = [
   {
     companyName: 'Jitera',
@@ -56,77 +55,40 @@ const experiences = [
 
 <template>
   <PageContainer>
-    <div class="max-w-3xl mx-auto">
-      <div class="flex flex-col md:flex-row justify-between items-baseline mb-12 gap-4">
-        <h2 class="text-3xl md:text-4xl font-mono font-bold text-white tracking-tight">
-          Professional <span class="text-aero">Journey</span>
-        </h2>
-        <TextLink href="https://www.linkedin.com/in/andrasat/" class="font-mono text-sm uppercase tracking-widest">
+    <section class="mx-auto max-w-3xl" aria-labelledby="experience-heading">
+      <header class="mb-[4.5rem] flex flex-col gap-4 md:flex-row md:items-baseline md:justify-between">
+        <h1 id="experience-heading" class="text-4xl font-semibold tracking-tight text-ink md:text-5xl">
+          Professional Journey
+        </h1>
+        <TextLink href="https://www.linkedin.com/in/andrasat/" class="inline-flex min-h-11 items-center text-sm font-medium">
           View LinkedIn →
         </TextLink>
-      </div>
+      </header>
 
-      <div class="timeline relative border-l-2 border-gray-800 ml-4 md:ml-6 space-y-12 pb-8">
-        <div 
-          v-for="(exp, index) in experiences"
-          :key="exp.companyName"
-          class="relative pl-8 md:pl-12 group"
+      <ol class="border-t border-rule">
+        <li
+          v-for="experience in experiences"
+          :key="experience.companyName"
+          class="grid min-w-0 gap-4 border-b border-rule py-6 md:grid-cols-[9rem_minmax(0,1fr)] md:gap-6"
         >
-          <!-- Timeline Dot -->
-          <div 
-            class="absolute -left-[9px] top-1 w-4 h-4 rounded-full transition-all duration-300 z-10"
-            :class="[
-              index === 0 
-                ? 'bg-aero border-2 border-aero shadow-[0_0_15px_rgba(81,180,211,0.5)] scale-110' 
-                : index === experiences.length - 1
-                  ? 'bg-licorice border-2 border-gray-600 group-hover:border-aero'
-                  : 'bg-licorice border-2 border-aero group-hover:bg-aero group-hover:scale-125'
-            ]"
-          >
-            <!-- Glow effect for current role -->
-            <div v-if="index === 0" class="absolute inset-0 rounded-full bg-aero/30 ring-2 ring-aero/50" />
-          </div>
-          
-          <div class="flex flex-col space-y-2">
-            <span class="text-xs font-mono font-bold text-coral uppercase tracking-tighter">
-              {{ formatDate(exp.startDate) }} — {{ exp.endDate ? formatDate(exp.endDate) : 'Present' }}
-            </span>
-            
-            <div class="flex flex-col md:flex-row md:items-center gap-2">
-              <h3 class="text-xl font-bold text-white group-hover:text-aero transition-colors">
-                {{ exp.role }}
-              </h3>
-              <span class="hidden md:block text-gray-600">@</span>
-              <TextLink :href="exp.companyUrl" class="text-lg">
-                {{ exp.companyName }}
+          <p class="text-xs font-semibold tracking-wide text-muted">
+            {{ formatDate(experience.startDate) }} — {{ experience.endDate ? formatDate(experience.endDate) : 'Present' }}
+          </p>
+          <div class="min-w-0 space-y-4">
+            <div class="space-y-1">
+              <h2 class="text-base font-semibold leading-[1.35] text-ink">
+                {{ experience.role }}
+              </h2>
+              <TextLink :href="experience.companyUrl" class="text-sm font-semibold">
+                {{ experience.companyName }}
               </TextLink>
             </div>
-            
-            <p v-if="exp.description" class="text-gray-400 mt-2 leading-relaxed max-w-2xl">
-              {{ exp.description }}
+            <p class="max-w-[66ch] text-sm leading-7 text-muted">
+              {{ experience.description }}
             </p>
           </div>
-        </div>
-      </div>
-    </div>
+        </li>
+      </ol>
+    </section>
   </PageContainer>
 </template>
-
-<style scoped>
-/* Smooth entrance for the timeline line */
-.timeline::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -2px;
-  height: 0;
-  width: 2px;
-  @apply bg-aero;
-  animation: line-grow 1s ease-out forwards;
-}
-
-@keyframes line-grow {
-  to { height: 100%; }
-}
-</style>
-

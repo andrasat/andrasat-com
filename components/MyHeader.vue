@@ -1,51 +1,33 @@
 <script setup lang="ts">
-const isScrolled = ref(false)
-let rafId: number | null = null
+const route = useRoute()
 
-function onScroll () {
-  if (rafId) return
-  rafId = requestAnimationFrame(() => {
-    isScrolled.value = window.scrollY > 20
-    rafId = null
-  })
-}
-
-onMounted(() => {
-  window.addEventListener('scroll', onScroll, { passive: true })
-  onScroll()
-})
-
-onUnmounted(() => {
-  window.removeEventListener('scroll', onScroll)
-  if (rafId) cancelAnimationFrame(rafId)
-})
+const navItems = [
+  { label: 'About', to: '/' },
+  { label: 'Projects', to: '/projects' },
+  { label: 'Experience', to: '/experiences' },
+  { label: 'Contact', to: '#contact' }
+] as const
 </script>
 
 <template>
-  <header 
-    class="p-4 h-20 top-0 fixed w-full flex flex-row justify-between items-center z-50 transition-all duration-300"
-    :class="{ 'backdrop-blur-md bg-licorice/70 border-b border-gray-800 shadow-lg': isScrolled }"
-  >
-    <div class="flex flex-row items-center">
-      <NuxtLink to="/" class="flex items-center group">
-        <div class="relative overflow-hidden rounded-full w-12 h-12 transition-transform duration-300 group-hover:scale-110">
-          <img
-            src="~/assets/images/andrasat_icon.png"
-            alt="andrasat"
-            height="48"
-            width="48"
-            class="object-cover"
-            loading="lazy"
-          >
-        </div>
-        <h1 class="ml-3 font-mono font-bold text-xl tracking-tight text-white group-hover:text-aero transition-colors duration-300">
-          // andrasat
-        </h1>
+  <header class="border-b border-rule">
+    <div class="mx-auto grid min-h-[5.25rem] w-full max-w-[76rem] grid-cols-[auto_1fr] items-center gap-2 px-4 py-2 md:grid-cols-[auto_1fr_auto] md:px-6">
+      <NuxtLink to="/" class="inline-flex min-h-11 items-center text-base font-semibold tracking-tight text-ink">
+        andrasat
       </NuxtLink>
+      <nav class="order-3 col-span-2 flex flex-wrap items-center gap-1 md:order-none md:col-span-1 md:justify-self-center" aria-label="Primary navigation">
+        <NuxtLink
+          v-for="item in navItems"
+          :key="item.to"
+          :to="item.to"
+          :aria-current="item.to !== '#contact' && route.path === item.to ? 'page' : undefined"
+          class="inline-flex min-h-11 items-center px-2 text-xs font-medium text-muted transition-colors duration-150 ease-out hover:text-accent-ink"
+          :class="item.to !== '#contact' && route.path === item.to ? 'text-accent-ink underline decoration-2 underline-offset-4' : ''"
+        >
+          {{ item.label }}
+        </NuxtLink>
+      </nav>
+      <ThemeControl class="justify-self-end" />
     </div>
-
-    <ClientOnly>
-      <HeaderMenu />
-    </ClientOnly>
   </header>
 </template>

@@ -1,9 +1,9 @@
-# Nginx Setup for andrasat.com + legal.andrasat.com
+# Nginx Setup for andrasat.com
 
 This folder contains repo-managed virtual host config for VPS deployment.
 
 - Primary config file: `andrasat.com.conf`
-- Purpose: serve both `andrasat.com` and `legal.andrasat.com` through the same Nuxt app (`127.0.0.1:3000`)
+- Purpose: serve `andrasat.com` through the Nuxt app (`127.0.0.1:3000`)
 
 ## Do we need to edit `default`?
 
@@ -24,9 +24,8 @@ sudo cp /path/to/repo/configs/nginx/andrasat.com.conf /etc/nginx/sites-available
 # 2) Enable site
 sudo ln -s /etc/nginx/sites-available/andrasat.com.conf /etc/nginx/sites-enabled/andrasat.com.conf
 
-# 3) Ensure SSL cert includes both domains
-# (run once if legal.andrasat.com is not yet on cert)
-sudo certbot --nginx -d andrasat.com -d www.andrasat.com -d legal.andrasat.com
+# 3) Issue or renew primary-domain certificate
+sudo certbot --nginx -d andrasat.com -d www.andrasat.com
 
 # 4) Validate config
 sudo nginx -t
@@ -46,7 +45,7 @@ If `/etc/letsencrypt/live/andrasat.com/` does not exist yet:
 
 You can keep `default` enabled temporarily during rollout.
 
-After verifying both domains work, disable `default` to avoid accidental catch-all routing:
+After verifying primary domain works, disable `default` to avoid accidental catch-all routing:
 
 ```bash
 sudo rm /etc/nginx/sites-enabled/default
@@ -57,8 +56,3 @@ sudo systemctl reload nginx
 ## Expected URLs after setup
 
 - `https://andrasat.com/`
-- `https://legal.andrasat.com/` → redirects to `/legal`
-- `https://legal.andrasat.com/privacy-policy`
-- `https://legal.andrasat.com/terms-of-service`
-- `https://legal.andrasat.com/compliance`
-- `https://legal.andrasat.com/data-deletion`

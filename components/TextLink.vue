@@ -1,13 +1,16 @@
 <script setup lang="ts">
-defineProps({
-  href: { type: String, default: '#' },
-  rel: { type: String, default: 'noopener noreferrer' },
-  target: { type: String, default: '_blank' }
+withDefaults(defineProps<{
+  readonly href: string
+  readonly rel?: string
+  readonly target?: string
+}>(), {
+  rel: 'noopener noreferrer',
+  target: '_blank'
 })
 </script>
 
 <template>
-  <a :href="href" :rel="rel" :target="target" class="text-aero hover:text-white transition-colors duration-200 decoration-aero/30 hover:decoration-white underline underline-offset-4">
+  <a :href="href" :rel="rel" :target="target" class="text-accent-ink underline decoration-current decoration-1 underline-offset-4 transition-[text-decoration-thickness] duration-150 ease-out hover:decoration-2 hover:underline-offset-2">
     <slot />
   </a>
 </template>

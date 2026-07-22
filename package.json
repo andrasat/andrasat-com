@@ -69,7 +69,7 @@
   "scripts": {
     "build": "nuxt build",
     "dev": "nuxt dev",
-    "lint": "eslint --ext .ts,.js,.vue --ignore-path .gitignore .",
+    "lint": "eslint .",
     "lint:design": "impeccable detect components/ pages/ layouts/",
     "generate": "nuxt generate",
     "preview": "nuxt preview",

@@ -4,10 +4,6 @@ export default defineNuxtConfig({
   app: {
     head: {
       link: [
-        {
-          rel: 'stylesheet',
-          href: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css'
-        },
         { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
         { rel: 'apple-touch-icon', sizes: '180x180', href: '/apple-touch-icon.png' }
       ]
@@ -28,8 +24,7 @@ export default defineNuxtConfig({
       '@nuxtjs/google-fonts',
       {
         families: {
-          'Red Hat Display': [500, 700],
-          'Red Hat Mono': [600]
+          Commissioner: [400, 500, 600, 700]
         },
         display: 'swap',
         subsets: ['latin']

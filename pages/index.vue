@@ -7,128 +7,60 @@ useSeoMeta({
 })
 
 const START_DEV_WORK = new Date('2017-07-01T00:00:00.000+07:00')
-const NOW = new Date()
-const yoe = Math.floor((NOW.getTime() - START_DEV_WORK.getTime()) / (1000 * 3600 * 24 * 365))
-
-const typedText = ref('')
-const fullText = 'Hello World!, My name is Andra Satria.'
-const typingSpeed = 100
-const typingComplete = ref(false)
-
-onMounted(() => {
-  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-    typedText.value = fullText
-    typingComplete.value = true
-    return
-  }
-  let i = 0
-  const typeWriter = () => {
-    if (i < fullText.length) {
-      typedText.value += fullText.charAt(i)
-      i++
-      setTimeout(typeWriter, typingSpeed)
-    } else {
-      typingComplete.value = true
-    }
-  }
-  typeWriter()
-})
+const yoe = Math.floor((Date.now() - START_DEV_WORK.getTime()) / (1000 * 3600 * 24 * 365))
 
 const skillCategories = [
-  {
-    name: 'Languages',
-    icons: [
-      { class: 'devicon-typescript-plain colored', name: 'TypeScript' },
-      { class: 'devicon-javascript-plain colored', name: 'JavaScript' },
-      { class: 'devicon-go-plain colored', name: 'Go' },
-      { class: 'devicon-rust-plain', name: 'Rust' }
-    ]
-  },
-  {
-    name: 'Frameworks & Tools',
-    icons: [
-      { class: 'devicon-nextjs-line', name: 'Next.js' },
-      { class: 'devicon-react-original colored', name: 'React' },
-      { class: 'devicon-nodejs-plain colored', name: 'Node.js' },
-      { class: 'devicon-nestjs-plain colored', name: 'NestJS' },
-      { class: 'devicon-nuxtjs-plain colored', name: 'Nuxt.js' },
-      { class: 'devicon-docker-plain colored', name: 'Docker' },
-      { class: 'devicon-kubernetes-plain colored', name: 'Kubernetes' }
-    ]
-  },
-  {
-    name: 'Cloud & DB',
-    icons: [
-      { class: 'devicon-googlecloud-plain colored', name: 'GCP' },
-      { class: 'devicon-postgresql-plain colored', name: 'PostgreSQL' },
-      { class: 'devicon-mysql-plain colored', name: 'MySQL' },
-      { class: 'devicon-mongodb-plain colored', name: 'MongoDB' },
-      { class: 'devicon-amazonwebservices-plain-wordmark colored', name: 'AWS' }
-    ]
-  }
-]
+  { id: 'languages', name: 'Languages', skills: ['TypeScript', 'JavaScript', 'Go', 'Rust'] },
+  { id: 'frameworks-tools', name: 'Frameworks & Tools', skills: ['Next.js', 'React', 'Node.js', 'NestJS', 'Nuxt.js', 'Docker', 'Kubernetes'] },
+  { id: 'cloud-db', name: 'Cloud & DB', skills: ['GCP', 'PostgreSQL', 'MySQL', 'MongoDB', 'AWS'] }
+] as const
 </script>
 
 <template>
   <PageContainer>
-    <div class="flex flex-col items-center md:items-start space-y-8 animate-fade-in">
-      <div class="min-h-[60px]">
-        <h2 class="text-3xl md:text-5xl font-mono font-bold text-white tracking-tighter">
-          {{ typedText }}<span class="text-aero" :class="{ 'animate-pulse': !typingComplete }">_</span>
-        </h2>
-      </div>
-
-      <div class="max-w-2xl space-y-6 text-lg leading-relaxed">
-        <p>
-          Now working remotely at 
-          <a rel="noopener noreferrer" href="https://jitera.com/" target="_blank" class="text-aero font-bold hover:underline decoration-2 underline-offset-4 transition-all">
-            Jitera
-          </a> 
-          as <span class="text-coral font-semibold italic">Senior Full Stack Developer</span>.
-        </p>
-        
-        <p>
-          I am a software engineer with <span class="text-white font-bold">{{ yoe }}+ years</span> of experience in crafting robust web applications.
-          I specialize in building products from <span class="bg-gray-800 px-1 rounded text-aero">0 to 1</span>, 
-          optimizing performance, and simplifying complex systems to deliver exceptional user experiences.
-        </p>
-      </div>
-
-      <div class="w-full grid grid-cols-1 md:grid-cols-3 gap-6 mt-12">
-        <div v-for="cat in skillCategories" :key="cat.name" class="p-6 rounded-2xl bg-gray-800/40 border border-gray-700/50 hover:border-aero/50 hover:bg-gray-800/60 transition-all duration-300 group">
-          <h3 class="text-sm font-mono text-gray-400 uppercase tracking-widest mb-4 group-hover:text-aero transition-colors">
-            {{ cat.name }}
-          </h3>
-          <div class="flex flex-wrap gap-4 text-3xl">
-            <i 
-              v-for="icon in cat.icons" 
-              :key="icon.name" 
-              :class="[icon.class, 'hover:scale-125 transition-transform duration-200 cursor-help']"
-              :title="icon.name"
-            />
-          </div>
+    <article class="grid gap-16 md:gap-[4.5rem]">
+      <section class="grid gap-6 border-b border-rule pb-10 md:grid-cols-[minmax(0,1.6fr)_minmax(12rem,0.8fr)] md:items-end">
+        <div class="min-w-0 space-y-6">
+          <h1 class="max-w-3xl text-[clamp(2.5rem,7vw,5.75rem)] font-semibold leading-[0.98] tracking-[-0.045em] text-ink text-balance">
+            Hello World!, My name is Andra Satria.
+          </h1>
         </div>
-      </div>
 
-      <div class="w-full text-center mt-20 opacity-60 hover:opacity-100 transition-opacity">
-        <p class="text-sm font-mono">
-          Handcrafted with 
-          <span class="text-aero">Nuxt</span> 
-          <i class="devicon-nuxtjs-plain colored mx-1" />
-          & 
-          <span class="text-coral">TailwindCSS</span>
-          <i class="devicon-tailwindcss-original colored mx-1" />
-        </p>
-      </div>
-    </div>
+        <aside class="grid min-w-0 gap-4 border-t border-rule pt-4" aria-label="Current role and experience">
+          <p class="max-w-[66ch] text-[clamp(0.9375rem,1.4vw,1.0625rem)] leading-[1.8] text-muted text-pretty">
+            Now working remotely at
+            <TextLink href="https://jitera.com/">Jitera</TextLink>
+            as Senior Full Stack Developer.
+          </p>
+          <p class="max-w-[66ch] text-[clamp(0.9375rem,1.4vw,1.0625rem)] leading-[1.8] text-muted text-pretty">
+            I am a software engineer with <strong class="font-semibold text-ink">{{ yoe }}+ years</strong> of experience in crafting robust web applications.
+          </p>
+        </aside>
+      </section>
+
+      <section class="grid gap-6" aria-labelledby="capabilities-heading">
+        <div class="grid max-w-[66ch] gap-2">
+          <h2 id="capabilities-heading" class="text-[clamp(1.75rem,4vw,3rem)] font-semibold leading-[1.05] tracking-[-0.03em] text-ink text-balance">
+            Building products from 0 to 1.
+          </h2>
+          <p class="text-[clamp(0.9375rem,1.4vw,1.0625rem)] leading-[1.8] text-muted text-pretty">
+            I specialize in building products from 0 to 1, optimizing performance, and simplifying complex systems to deliver exceptional user experiences.
+          </p>
+        </div>
+
+        <div class="grid gap-4 md:grid-cols-3" aria-label="Capability index">
+          <section v-for="category in skillCategories" :key="category.id" class="grid gap-3 border-t border-rule pt-4" :aria-labelledby="`skill-${category.id}`">
+            <h3 :id="`skill-${category.id}`" class="text-base font-semibold leading-snug text-ink">
+              {{ category.name }}
+            </h3>
+            <ul class="flex flex-wrap content-start items-start gap-2" role="list">
+              <li v-for="skill in category.skills" :key="skill" class="rounded-lg border border-control px-2 py-1 text-xs font-medium leading-snug text-muted">
+                {{ skill }}
+              </li>
+            </ul>
+          </section>
+        </div>
+      </section>
+    </article>
   </PageContainer>
 </template>
-
-<style scoped>
-.colored {
-  filter: grayscale(0.2) contrast(1.1);
-}
-.colored:hover {
-  filter: grayscale(0) contrast(1.2);
-}
-</style>

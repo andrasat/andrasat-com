@@ -196,6 +196,5 @@ else
   echo "═══════════════════════════════════════════"
   echo " Migration complete."
   echo " Verify: https://andrasat.com"
-  echo "         https://legal.andrasat.com/privacy-policy"
   echo "═══════════════════════════════════════════"
 fi

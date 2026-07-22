@@ -1,219 +1,142 @@
 ---
 name: andrasat.com
-description: Personal portfolio of Andra Satria, Senior Full Stack Developer
-colors:
-  primary: "#51b4d3"
-  secondary: "#7d66dd"
-  accent: "#f98c67"
-  neutral-bg: "#0e0311"
-  neutral-surface: "rgba(31,41,55,0.4)"
-  neutral-border: "#374151"
-typography:
-  display:
-    fontFamily: "Red Hat Mono, monospace"
-    fontWeight: 600
-  body:
-    fontFamily: "Red Hat Display, Arial, sans-serif"
-    fontWeight: 500
-  body-bold:
-    fontFamily: "Red Hat Display, Arial, sans-serif"
-    fontWeight: 700
-rounded:
-  sm: "0.5rem"
-  md: "0.75rem"
-  lg: "1rem"
-  full: "9999px"
-spacing:
-  xs: "0.25rem"
-  sm: "0.5rem"
-  md: "1rem"
-  lg: "1.5rem"
-  xl: "2rem"
-  "2xl": "3rem"
-components:
-  text-link:
-    textColor: "{colors.primary}"
-    textDecoration: "underline"
-    textUnderlineOffset: "4px"
-    hoverTextColor: "#ffffff"
-    transition: "colors 200ms"
-  skill-card:
-    backgroundColor: "rgba(31,41,55,0.4)"
-    borderColor: "rgba(55,65,81,0.5)"
-    borderRadius: "{rounded.lg}"
-    hoverBorderColor: "rgba(81,180,211,0.5)"
-    padding: "{spacing.lg}"
-  menu-button:
-    backgroundColor: "rgba(31,41,55,0.5)"
-    borderColor: "{colors.neutral-border}"
-    borderRadius: "{rounded.full}"
-    padding: "0.5rem 0.75rem"
-  footer-social-button:
-    backgroundColor: "rgba(31,41,55,0.5)"
-    borderColor: "{colors.neutral-border}"
-    borderRadius: "{rounded.sm}"
-    hoverBackgroundColor: "rgba(81,180,211,0.2)"
-    hoverBorderColor: "{colors.primary}"
+description: Evidence Led portfolio of Andra Satria, Senior Full Stack Developer
+direction: Evidence Led
+font: Commissioner
+fontWeights: 400, 500, 600, 700
+themes: system, light, dark
 ---
 
-## Overview
+## 1. Contract
 
-**Creative North Star**: *The Developer Terminal, charged with personality.* A portfolio that speaks the language of code — monospace signifiers, terminal prompts, a singular electric accent against deep licorice black — but with an edge that's unmistakably human. Intentional in every detail, electric in its presence, and warm through craft rather than softness.
+**Creative North Star**: Evidence Led. A calm, professional, neutral, modern portfolio that lets a recruiter or client establish credibility through a clear sequence: who Andra is, what he builds, where he has worked, and where to inspect more.
 
-**Register**: Brand surface (primary). This is a personal portfolio and blog where design IS the product — it communicates identity, credibility, and craftsmanship. The Yifa legal pages are a secondary product surface where design serves compliance and trust.
+**Register**: Brand surface. Design communicates identity, credibility, and craftsmanship through information hierarchy rather than decoration.
 
-**Brand personality**: Intentional, electric, human.
-- **Intentional**: Every element earns its place. No filler, no buzzwords, no decoration for its own sake.
-- **Electric**: The aero accent against licorice creates tension. The interface feels alive, not static. Code-like signifiers inject energy without gimmickry.
-- **Human**: Warmth through craft, not softness. Easter eggs, conversational copy, a typewriter intro — these reveal the person behind the code.
+**Layout grammar**:
 
-**Design principles**:
-- Code as aesthetic, not gimmick. Monospace appears as structural signifiers (`// andrasat`, `contact.init()`) not as decoration.
-- One accent carries the interface. Aero (#51b4d3) is the electric thread; everything else is neutral.
-- Motion serves clarity. Fade-ins introduce content. Hover states confirm interactivity. Nothing moves without purpose.
-- Dark is the default, not a mode. No light-mode toggle. The palette is designed from dark out.
-- Craft communicates credibility. The quality of the interface IS the proof. A senior developer's site should feel senior — never generic, never template-like.
+- Use an asymmetric, left-anchored composition with a strong opening statement and compact proof rail.
+- Put current role and links near the introduction.
+- Present skills as a concise capability index, never an icon wall.
+- Present projects as evidence rows. Projects contains **Now Building** only, with Yifa prominent and existing factual content unchanged.
+- Present experience as readable chronology, with dates aligned as metadata.
+- Keep contact visible at the end of the primary flow.
+- Use rules and whitespace to separate evidence groups. Do not repeat card grids.
 
-**Anti-references**: Generic SaaS landing pages. Gradient-heavy hero sections. Purple-on-dark AI aesthetics. Glassmorphism for its own sake. "Modern and clean" as verbal filler. Developer portfolios that are just technology lists with no narrative. Template-like card grids. Anything that could be mistaken for a Vercel template.
+## 2. Themes and Color Tokens
 
-**Uniqueness mandate**: The site is the reference, but it reads as too safe. Future design work should push past "clean portfolio" into something that feels unmistakably personal. The developer-terminal concept is solid but under-explored — lean harder into the metaphor without crossing into gimmickry. The Konami easter egg is the right instinct; find more moments like it that reward attention.
+Use OKLCH tokens exactly. Light and Dark are designed states, not inverted colors. System resolves to the operating system preference.
 
-## Colors
+| Token | Light | Dark | Role |
+|---|---|---|---|
+| `canvas` | `oklch(0.985 0.003 235)` | `oklch(0.17 0.012 235)` | Page background |
+| `surface` | `oklch(1 0 0 / 0.7)` | `oklch(0.21 0.014 235 / 0.72)` | Selected controls and restrained surfaces |
+| `ink` | `oklch(0.22 0.016 235)` | `oklch(0.91 0.008 235)` | Primary text |
+| `muted` | `oklch(0.43 0.018 235)` | `oklch(0.72 0.014 235)` | Supporting text and metadata |
+| `rule` | `oklch(0.82 0.012 235)` | `oklch(0.32 0.018 235)` | Dividers and row rules |
+| `control` | `oklch(0.62 0.018 235)` | `oklch(0.55 0.022 235)` | Control borders |
+| `accent` | `oklch(0.66 0.115 220)` | `oklch(0.76 0.1 220)` | Interaction accent |
+| `accent-ink` | `oklch(0.39 0.09 220)` | `oklch(0.8 0.085 220)` | Accent text on the current canvas |
+| `focus` | `oklch(0.59 0.14 220)` | `oklch(0.82 0.13 220)` | Focus outline |
 
-**The Aero Carries Meaning Rule**: One accent (#51b4d3) for links, interactive elements, and code signifiers. Never use aero for non-interactive decoration. Never introduce a second accent blue.
+Rules:
 
-**The Coral Is Emphasis Rule**: Coral (#f98c67) is reserved for semantic emphasis — job titles, key numbers, highlight spans. It appears sparingly, never as a background or button fill.
+- Use `accent` and `accent-ink` only for links, selected states, actions, and interaction feedback.
+- Use `rule` sparingly. Borders are 1px unless a focus outline requires 3px.
+- No gradients, gradient text, neon effects, decorative blur, or side-stripe accents.
+- No warm paper treatment, purple or violet accent, licorice canvas, or dark-only assumptions.
 
-**The Licorice Is Canvas Rule**: Licorice (#0e0311) is the background, not a surface. Surfaces (cards, menus) use gray-800 at varying opacity over licorice. Never use a flat mid-gray background.
+## 3. Typography
 
-**Palette**:
+Commissioner is the only font family. Load Google Fonts with `display=swap` and the Latin subset. Allowed weights are exactly 400, 500, 600, and 700.
 
-| Token | Value | Role |
-|---|---|---|
-| `licorice` | `#0e0311` | Primary background |
-| `aero` | `#51b4d3` | Primary accent, links, interactive |
-| `medium-slate-blue` | `#7d66dd` | Secondary accent, available for variety |
-| `coral` | `#f98c67` | Emphasis, highlights, semantic accent |
-| `indigo-dye` | `#1c4666` | Dark tonal variant |
+| Role | Weight | Size | Line height |
+|---|---:|---:|---:|
+| Display title | 600 | `clamp(2.5rem, 7vw, 5.75rem)` | `0.98` |
+| Section title | 600 | `clamp(1.75rem, 4vw, 3rem)` | `1.05` |
+| Project or experience title | 600 | `1rem` | `1.35` |
+| Body and reading copy | 400 | `clamp(0.9375rem, 1.4vw, 1.0625rem)` | `1.8` |
+| Supporting copy | 400 | `0.875rem` | `1.75` |
+| Navigation, metadata, tags | 500 or 600 | `0.75rem` to `0.8125rem` | `1.4` |
+| Strong inline text | 600 | inherited | inherited |
 
-**Neutral scale** (Tailwind gray):
-- `gray-300` (#d1d5db): Primary body text
-- `gray-400` (#9ca3af): Secondary text
-- `gray-500` (#6b7280): Muted text
-- `gray-600` (#4b5563): Faint text
-- `gray-700` (#374151): Default border
-- `gray-800` (#1f2937): Surface fills (at opacity)
+Use `text-wrap: balance` for titles and `text-wrap: pretty` for long prose. Keep body copy left aligned, within 66ch. Use negative tracking only for display titles, approximately `-0.045em`. Do not use all caps for sentences.
 
-**Text on background rule**: Body text is gray-300 on licorice. White (#ffffff) reserved for headings and hover states. Never use pure white for body copy. Never use gray text below gray-400 for readable content.
+## 4. Spacing and Shape
 
-## Typography
+| Token | Value |
+|---|---:|
+| `space-1` | `0.5rem` |
+| `space-2` | `1rem` |
+| `space-3` | `1.5rem` |
+| `space-4` | `2.5rem` |
+| `space-5` | `4.5rem` |
+| `radius` | `0.5rem` |
+| `control-min` | `2.75rem` |
 
-**The Monospace Is Structural Rule**: Red Hat Mono (weight 600) is used ONLY for headings, code-like signifiers, labels, and navigation elements. It communicates structure — never use it for body copy or paragraphs.
+Use spacing, rules, and alignment as primary grouping tools. Avoid nested cards and arbitrary shadows. Controls must provide at least a 44 by 44 CSS pixel target.
 
-**The Sans Is Prose Rule**: Red Hat Display (weights 500, 700) carries all body text, descriptions, and extended reading. Weight 700 for bold emphasis within prose.
+## 5. Primitives and States
 
-**Hierarchy**:
+### Link
 
-| Role | Font | Weight | Size | Usage |
-|---|---|---|---|---|
-| Display | Red Hat Mono | 600 | 3xl–5xl | Page titles, name |
-| Heading | Red Hat Mono | 600 | xl–2xl | Section headers, card titles |
-| Label | Red Hat Mono | 600 | sm | Category labels, nav, footer |
-| Body | Red Hat Display | 500 | base–lg | Prose, descriptions |
-| Body Bold | Red Hat Display | 700 | base–lg | Emphasized body text |
+- Resting: inherited or `accent-ink` text, no forced decoration for navigation, underline for inline links, underline offset `0.25rem`.
+- Hover: `accent-ink`, visible underline where applicable.
+- Focus: 3px `focus` outline with 3px offset.
+- Current page: `accent-ink` plus a non-color indicator such as underline.
 
-**Typography rules**:
-- Tracking: tight for display (`tracking-tighter`), wide for labels (`tracking-widest`)
-- Line height: relaxed for body (`leading-relaxed`), normal for headings
-- Never use more than two font families on a single view
-- Never center-align paragraphs longer than two lines
+### Action
 
-## Elevation
+- Resting: inline-flex, minimum 44px height and width, 1px `control` border, `radius`, `accent-ink` text, horizontal `space-2` padding.
+- Hover: `accent` border and `surface` background.
+- Active: subtle `transform: scale(0.97)` only for pointer activation.
+- Focus: visible 3px `focus` outline.
+- Disabled: retain readable contrast and communicate unavailable state without relying on color alone.
 
-**The Flat-By-Default Rule**: The interface sits on licorice without elevation. Shadows, blurs, and borders appear ONLY as responses to state: scroll, hover, focus, or as container edges.
+### ThemeControl
 
-**Elevation vocabulary**:
+Expose System, Light, and Dark as icon-only Phosphor Desktop, Sun, and Moon buttons with accessible button names, `title`, and `aria-pressed`. Show the active choice with a filled icon plus selected border and surface, not color alone. Start in System when no saved preference exists. Persist explicit Light or Dark locally. A saved choice overrides system changes; System follows `prefers-color-scheme` and responds to later OS changes. Change themes without reload, content changes, or focus loss.
 
-| Name | Value | Trigger |
-|---|---|---|
-| `ambient-sm` | `backdrop-blur-sm` | Footer surface, persistent containers |
-| `ambient-md` | `backdrop-blur-md` + `shadow-lg` | Header on scroll |
-| `ambient-xl` | `backdrop-blur-xl` + `shadow-2xl` | Popover menu |
-| `surface-card` | `bg-gray-800/40` + `border-gray-700/50` | Card resting state |
-| `surface-card-hover` | `bg-gray-800/60` + `border-aero/50` | Card hover state |
+### EvidenceRow
 
-**Border rules**:
-- Default borders: `border-gray-700` or `border-gray-800`
-- Interactive hover borders transition to `border-aero/50`
-- Never use borders thicker than 1px on cards
-- Never use glowing/neon border effects
+- Resting: full-width row with 1px top or bottom `rule`, `space-3` block padding, no decorative card treatment.
+- Structure: distinct title or employer column, metadata column where useful, description in readable measure, tags only when they add evidence.
+- Hover: restrained `surface` or `accent-ink` response only when the row contains a real link.
+- Focus: visible `focus` outline on the actual link or action.
+- Wrap: long names, dates, URLs, and tags wrap without clipping or horizontal overflow.
 
-## Components
+### CapabilityIndex
 
-### TextLink
-Inline text links. Aero-colored with underline offset. Transitions to white on hover.
-- **Resting**: `text-aero`, `underline`, `decoration-aero/30`, `underline-offset-4`
-- **Hover**: `text-white`, `decoration-white`, 200ms color transition
-- **Never**: Gradient text, animated underlines, oversized underlines
-
-### SkillCard
-Grid cards for skill categories. Dark surface with subtle border, aero border on hover.
-- **Resting**: `rounded-2xl`, `bg-gray-800/40`, `border-gray-700/50`, `p-6`
-- **Hover**: `border-aero/50`, `bg-gray-800/60`, 300ms transition
-- **Label**: Monospace, uppercase, `tracking-widest`, gray-400, transitions to aero on hover
-- **Never**: Inner shadows, gradient borders, side-stripe accents
-
-### MenuButton
-Hamburger menu trigger. Pill-shaped, three-line icon with aero accents.
-- **Shape**: `rounded-full`, `h-10`, `px-3`
-- **Resting**: `bg-gray-800/50`, `border-gray-700`
-- **Hover**: `bg-gray-700/50`, top and bottom lines shorten
-- **Active**: `scale-95`
-- **Icon lines**: `bg-aero`, 2px height, 3 lines stacked
-- **Never**: Animated to X, rotating icon, border-radius < full
-
-### PopoverMenu
-Dropdown navigation menu. Glass overlay with blur.
-- **Container**: `backdrop-blur-xl`, `bg-licorice/90`, `border-gray-700`, `rounded-xl`, `shadow-2xl`, `ring-1 ring-white/10`
-- **Items**: `rounded-lg`, `hover:bg-white/10`, icon in aero, text in font-medium
-- **Entry animation**: Fade in + translateY(-10px → 0), 200ms ease-out
-- **Backdrop**: Transparent (does not dim the page)
-- **Never**: Slide-from-side, scale origin animation, backdrop dimming
+Use a concise three-column index at desktop and tablet widths, with each category separated by a top `rule`. Use semantic headings and text tags, not icons or repeated cards. Collapse to one column on small screens. Tags use 1px `control` borders, `radius`, `muted` text, `0.25rem 0.5rem` padding, and 500 or 600 weight.
 
 ### Header
-Fixed top bar. Transparent by default, frosted glass on scroll.
-- **Resting**: Transparent background, no border
-- **Scrolled**: `bg-licorice/70`, `backdrop-blur-md`, `border-b border-gray-800`, `shadow-lg`
-- **Transition**: 300ms on all properties
-- **Height**: `h-20` (5rem)
-- **Never**: Shrink-on-scroll, color-shift on scroll, logo animation
+
+Use a semantic header with wordmark, navigation, and theme control. Desktop layout is a three-column grid with a minimum height of `5.25rem`. Navigation and controls have 44px minimum targets. At 375px, wrap navigation below the wordmark and keep theme control reachable. No shrink-on-scroll, logo animation, terminal prompt, or icon wall.
 
 ### Footer
-Bottom section with contact info and social links. Frosted surface with top border.
-- **Container**: `border-t border-gray-800`, `bg-licorice/50`, `backdrop-blur-sm`
-- **Social buttons**: `rounded-xl`, `bg-gray-800/50`, `border-gray-700`, hover: `bg-aero/20` + `border-aero`, 300ms transition
-- **Decorative**: Subtle blurred glow (`bg-aero/5`, `blur-3xl`) in corner — the only decorative element allowed
-- **Never**: Heavy footer with columns, sitemap, newsletter signup
 
-## Do's and Don'ts
+Use a quiet footer with contact or social destinations and copyright. Separate it with a top `rule`; use muted text and normal links. Keep it lightweight, without sitemap columns, newsletter signup, decorative glow, or legal pages.
 
-### Do
-- **Use aero as the singular interactive accent.** Links, icons, hover states — aero and only aero.
-- **Use monospace for structural elements.** Headings, labels, code-like signifiers communicate the developer identity.
-- **Let surfaces sit on licorice.** Cards and containers get gray-800 fills at opacity, never solid mid-gray.
-- **Animate with purpose.** Fade-in for content entry, 200–300ms transitions for hover, scale-95 for button press.
-- **Keep borders subtle.** gray-700 or gray-800, transitioning to aero/50 on hover. Never thicker than 1px.
-- **Use backdrop-blur for elevation.** Frosted glass communicates depth on the dark background without heavy shadows.
-- **Find moments of personality.** Easter eggs, playful copy, deliberate asymmetry — things that reward attention and feel unmistakably human. The Konami easter egg is the right instinct.
-- **Push past "clean portfolio."** If a design choice could appear on any developer's site, find a more specific alternative. The terminal metaphor, the aero accent, and craft-level detail are the differentiators.
-- **Meet WCAG 2.1 AA.** Contrast ratios, keyboard navigation, screen reader support, and reduced-motion alternatives are not optional.
+## 6. Responsive Rules
 
-### Don't
-- **Don't use gradient text.** No `bg-gradient-to-r bg-clip-text text-transparent` anywhere.
-- **Don't use purple/violet as a primary accent.** The AI palette (purple gradients, violet glows) is explicitly anti-referenced.
-- **Don't use side-stripe or left-border accents on cards.** No `border-l-4 border-aero` card treatments.
-- **Don't add a light mode.** The palette is dark by design. A toggle would split the identity.
-- **Don't center-align paragraphs.** Headings and short labels can be centered; body copy is always left-aligned or justified in narrow contexts.
-- **Don't introduce a third font family.** Red Hat Display and Red Hat Mono are the only fonts. No decorative or script fonts.
-- **Don't use glassmorphism as decoration.** Backdrop-blur exists to communicate elevation, never as ornamental frosting.
-- **Don't use bouncing, elastic, or spring animations.** All motion uses standard ease curves. No `cubic-bezier` bounce overshoots.
+| Viewport | Rules |
+|---|---|
+| `375px` | Single-column intro, capability index, evidence rows, and experience chronology. Navigation may wrap below header identity. Verify readable title wraps, reachable controls, and no horizontal overflow. |
+| `768px` | Begin two-column intro and evidence layouts where content benefits. Keep dates and metadata aligned without clipping. Capability index may use three columns when each remains readable. |
+| `1280px` | Use the asymmetric Evidence Led composition, max content width around `76rem`, readable body measure, compact proof rail, and balanced whitespace. Do not create excessive empty hero space. |
+
+Across all widths, preserve semantic order, left-aligned body copy, link destinations, and content. Long text must wrap. No heading, row, control, or theme state may overflow the viewport.
+
+## 7. Accessibility and Motion
+
+Target WCAG 2.1 AA. Use semantic `header`, `nav`, `main`, `section`, `article`, and `footer` landmarks where appropriate. Keep one clear `h1` per primary page, ordered headings, descriptive link names, keyboard operation, and visible focus in every theme. Maintain 4.5:1 normal text contrast, 3:1 large text and required non-text boundaries, and meaningful alternative text for meaningful images.
+
+Motion is limited to state change, spatial orientation, or interaction feedback. Use opacity and transform, with short ease-out transitions. Content is visible without animation. Under `prefers-reduced-motion: reduce`, remove movement and preserve immediate content visibility.
+
+## 8. Explicit Exclusions and Accepted Constraints
+
+Exclude terminal styling, typewriter effects, Konami interactions, monospace typography, icon walls, logo walls, **Selected Works**, mockup classes, mockup routes, gradient text, Red Hat, Merriweather, licorice, dark-only behavior, decorative glassmorphism, and legal pages.
+
+This contract does not invent content, metrics, outcomes, project descriptions, employers, dates, or availability claims. Projects contains **Now Building** only. Legal cleanup, route removal, and migration work are outside this document's implementation scope.
+
+Accepted constraints: Commissioner is the sole typeface; the interface uses neutral canvas tokens and a restrained aero interaction accent; System, Light, and Dark must remain usable and readable; evidence rows and whitespace replace repeated card grids; responsive behavior must satisfy 375px, 768px, and 1280px targets.
