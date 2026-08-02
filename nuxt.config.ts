@@ -6,6 +6,12 @@ export default defineNuxtConfig({
       link: [
         { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
         { rel: 'apple-touch-icon', sizes: '180x180', href: '/apple-touch-icon.png' }
+      ],
+      meta: [
+        { property: 'og:site_name', content: 'andrasat.com' },
+        { property: 'og:image', content: 'https://andrasat.com/og-image.png' },
+        { name: 'twitter:card', content: 'summary_large_image' },
+        { name: 'twitter:image', content: 'https://andrasat.com/og-image.png' }
       ]
     }
   },

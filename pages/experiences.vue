@@ -1,7 +1,24 @@
 <script setup lang="ts">
+const SITE_URL = 'https://andrasat.com'
+
 useSeoMeta({
-  title: 'andrasat - Professional Experience',
-  description: 'Work history and professional journey of Andra Satria.'
+  title: 'Experience — Andra Satria',
+  ogTitle: 'Experience — Andra Satria',
+  description: 'Work history and professional journey of Andra Satria — Senior Full Stack Developer since 2017.',
+  ogDescription: 'Work history and professional journey of Andra Satria — Senior Full Stack Developer since 2017.',
+  ogType: 'website',
+  ogUrl: `${SITE_URL}/experiences`,
+  ogImage: `${SITE_URL}/og-image.png`,
+  twitterCard: 'summary_large_image',
+  twitterTitle: 'Experience — Andra Satria',
+  twitterDescription: 'Work history and professional journey of Andra Satria — Senior Full Stack Developer since 2017.',
+  twitterImage: `${SITE_URL}/og-image.png`
+})
+
+useHead({
+  link: [
+    { rel: 'canonical', href: `${SITE_URL}/experiences` }
+  ]
 })
 
 const experiences = [
@@ -56,11 +73,11 @@ const experiences = [
 <template>
   <PageContainer>
     <section class="mx-auto max-w-3xl" aria-labelledby="experience-heading">
-      <header class="mb-[4.5rem] flex flex-col gap-4 md:flex-row md:items-baseline md:justify-between">
-        <h1 id="experience-heading" class="text-4xl font-semibold tracking-tight text-ink md:text-5xl">
+      <header class="mb-[4.5rem] flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
+        <h1 id="experience-heading" class="text-[clamp(2.5rem,7vw,5.75rem)] font-semibold leading-[0.98] tracking-[-0.03em] text-ink text-balance">
           Professional Journey
         </h1>
-        <TextLink href="https://www.linkedin.com/in/andrasat/" class="inline-flex min-h-11 items-center text-sm font-medium">
+        <TextLink href="https://www.linkedin.com/in/andrasat/" class="inline-flex min-h-11 shrink-0 items-center whitespace-nowrap text-sm font-medium">
           View LinkedIn →
         </TextLink>
       </header>

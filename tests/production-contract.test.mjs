@@ -34,13 +34,14 @@ test('Given homepage HTML, When rendered, Then introduction is complete immediat
   assert.equal(response.status, 200)
 
   for (const marker of [
-    'Hello World!, My name is Andra Satria.',
+    'Andra Satria.',
+    'Building products from 0 to 1.',
     'Now working remotely at',
     'Jitera',
     'Senior Full Stack Developer',
     'I am a software engineer with',
     'experience in crafting robust web applications.',
-    'Building products from 0 to 1.'
+    'What I work with'
   ]) {
     assert.ok(html.includes(marker), `homepage should contain ${marker}`)
   }
@@ -74,8 +75,9 @@ test('Given projects HTML, When rendered, Then it contains current work facts on
 
   assert.match(html, /<a\b[^>]*\bhref="https:\/\/yifa\.id"[^>]*>/, 'projects should link to yifa.id')
 
+  const body = html.replace(/<head[\s\S]*?<\/head>/, '')
   for (const marker of ['Selected Works', 'andrasat.com', 'aoc']) {
-    assert.ok(!html.includes(marker), `projects should exclude ${marker}`)
+    assert.ok(!body.includes(marker), `projects should exclude ${marker}`)
   }
 })
 

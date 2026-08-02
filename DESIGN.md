@@ -60,7 +60,7 @@ Commissioner is the only font family. Load Google Fonts with `display=swap` and 
 | Navigation, metadata, tags | 500 or 600 | `0.75rem` to `0.8125rem` | `1.4` |
 | Strong inline text | 600 | inherited | inherited |
 
-Use `text-wrap: balance` for titles and `text-wrap: pretty` for long prose. Keep body copy left aligned, within 66ch. Use negative tracking only for display titles, approximately `-0.045em`. Do not use all caps for sentences.
+Use `text-wrap: balance` for titles and `text-wrap: pretty` for long prose. Keep body copy left aligned, within 66ch. Use negative tracking only for display titles, approximately `-0.03em`. Do not use all caps for sentences.
 
 ## 4. Spacing and Shape
 

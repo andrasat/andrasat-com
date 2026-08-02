@@ -1,7 +1,24 @@
 <script setup lang="ts">
+const SITE_URL = 'https://andrasat.com'
+
 useSeoMeta({
-  title: 'andrasat - Projects',
-  description: 'Projects and experiments by Andra Satria — from full-stack apps to systems programming.'
+  title: 'Projects — Andra Satria',
+  ogTitle: 'Projects — Andra Satria',
+  description: 'Projects and experiments by Andra Satria — from full-stack apps to systems programming.',
+  ogDescription: 'Projects and experiments by Andra Satria — from full-stack apps to systems programming.',
+  ogType: 'website',
+  ogUrl: `${SITE_URL}/projects`,
+  ogImage: `${SITE_URL}/og-image.png`,
+  twitterCard: 'summary_large_image',
+  twitterTitle: 'Projects — Andra Satria',
+  twitterDescription: 'Projects and experiments by Andra Satria — from full-stack apps to systems programming.',
+  twitterImage: `${SITE_URL}/og-image.png`
+})
+
+useHead({
+  link: [
+    { rel: 'canonical', href: `${SITE_URL}/projects` }
+  ]
 })
 
 const nowBuilding = [
@@ -64,7 +81,7 @@ const nowBuilding = [
                 {{ project.description }}
               </p>
               <TextLink v-if="project.link" :href="project.link" class="mt-2 inline-flex min-h-11 items-center text-sm font-medium">
-                Visit yifa.id →
+                Visit {{ project.name }} →
               </TextLink>
               <ul class="mt-6 flex flex-wrap gap-2" aria-label="Technologies">
                 <li

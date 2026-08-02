@@ -20,13 +20,17 @@
     "nuxt": "^3.21.1",
     "semantic-release": "^22.0.12",
     "tailwindcss": "^3.4.10",
-    "typescript": "^5.5.4"
+    "typescript": "^5.5.4",
+    "@nuxt/kit": "^3.21.1"
   },
   "engines": {
     "node": "18.x"
   },
   "lint-staged": {
-    "*.{js,ts,vue}": ["eslint", "impeccable detect"]
+    "*.{js,ts,vue}": [
+      "eslint",
+      "impeccable detect"
+    ]
   },
   "private": true,
   "publishConfig": {

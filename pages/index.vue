@@ -1,9 +1,46 @@
 <script setup lang="ts">
+const SITE_URL = 'https://andrasat.com'
+
 useSeoMeta({
-  title: 'andrasat - Senior Full Stack Developer',
-  ogTitle: 'andrasat',
-  description: 'Personal website of Andra Satria, Senior Full Stack Developer',
-  ogDescription: 'Personal website of Andra Satria, Senior Full Stack Developer'
+  title: 'Andra Satria — Senior Full Stack Developer',
+  ogTitle: 'Andra Satria — Senior Full Stack Developer',
+  description: 'Andra Satria — Senior Full Stack Developer building products from 0 to 1. Currently working remotely at Jitera.',
+  ogDescription: 'Andra Satria — Senior Full Stack Developer building products from 0 to 1. Currently working remotely at Jitera.',
+  ogType: 'website',
+  ogUrl: `${SITE_URL}/`,
+  ogImage: `${SITE_URL}/og-image.png`,
+  twitterCard: 'summary_large_image',
+  twitterTitle: 'Andra Satria — Senior Full Stack Developer',
+  twitterDescription: 'Andra Satria — Senior Full Stack Developer building products from 0 to 1. Currently working remotely at Jitera.',
+  twitterImage: `${SITE_URL}/og-image.png`
+})
+
+useHead({
+  link: [
+    { rel: 'canonical', href: `${SITE_URL}/` }
+  ],
+  script: [
+    {
+      type: 'application/ld+json',
+      children: JSON.stringify({
+        '@context': 'https://schema.org',
+        '@type': 'Person',
+        name: 'Andra Satria',
+        url: `${SITE_URL}/`,
+        jobTitle: 'Senior Full Stack Developer',
+        worksFor: {
+          '@type': 'Organization',
+          name: 'Jitera',
+          url: 'https://jitera.com/'
+        },
+        email: 'mailto:andra.satria1@gmail.com',
+        sameAs: [
+          'https://www.linkedin.com/in/andrasat/',
+          'https://github.com/andrasat'
+        ]
+      })
+    }
+  ]
 })
 
 const START_DEV_WORK = new Date('2017-07-01T00:00:00.000+07:00')
@@ -20,10 +57,13 @@ const skillCategories = [
   <PageContainer>
     <article class="grid gap-16 md:gap-[4.5rem]">
       <section class="grid gap-6 border-b border-rule pb-10 md:grid-cols-[minmax(0,1.6fr)_minmax(12rem,0.8fr)] md:items-end">
-        <div class="min-w-0 space-y-6">
-          <h1 class="max-w-3xl text-[clamp(2.5rem,7vw,5.75rem)] font-semibold leading-[0.98] tracking-[-0.045em] text-ink text-balance">
-            Hello World!, My name is Andra Satria.
+        <div class="min-w-0">
+          <h1 class="text-[clamp(2.5rem,7vw,5.75rem)] font-semibold leading-[0.98] tracking-[-0.03em] text-ink text-balance">
+            Andra Satria.
           </h1>
+          <p class="mt-6 max-w-3xl text-[clamp(1.75rem,4vw,3rem)] font-semibold leading-[1.05] tracking-[-0.03em] text-muted text-balance">
+            Building products from 0 to 1.
+          </p>
         </div>
 
         <aside class="grid min-w-0 gap-4 border-t border-rule pt-4" aria-label="Current role and experience">
@@ -41,10 +81,10 @@ const skillCategories = [
       <section class="grid gap-6" aria-labelledby="capabilities-heading">
         <div class="grid max-w-[66ch] gap-2">
           <h2 id="capabilities-heading" class="text-[clamp(1.75rem,4vw,3rem)] font-semibold leading-[1.05] tracking-[-0.03em] text-ink text-balance">
-            Building products from 0 to 1.
+            What I work with
           </h2>
           <p class="text-[clamp(0.9375rem,1.4vw,1.0625rem)] leading-[1.8] text-muted text-pretty">
-            I specialize in building products from 0 to 1, optimizing performance, and simplifying complex systems to deliver exceptional user experiences.
+            I work across the full stack — typed frontends in TypeScript and React, APIs and services on Node.js and Go, deployed to the cloud.
           </p>
         </div>
 
@@ -60,6 +100,27 @@ const skillCategories = [
             </ul>
           </section>
         </div>
+      </section>
+
+      <section class="grid gap-6 md:grid-cols-2 md:gap-10" aria-label="Where to look next">
+        <article class="grid min-w-0 gap-3 border-t border-rule pt-4">
+          <h2 class="text-base font-semibold leading-snug text-ink">Now building</h2>
+          <p class="text-sm leading-7 text-muted">
+            Yifa — a privacy-first personal finance tracker with AI-powered insights. Coming soon.
+          </p>
+          <NuxtLink to="/projects" class="inline-flex min-h-11 items-center text-sm font-medium text-accent-ink underline decoration-current decoration-1 underline-offset-4 transition-[text-decoration-thickness] duration-150 ease-out hover:decoration-2 hover:underline-offset-2">
+            See projects →
+          </NuxtLink>
+        </article>
+        <article class="grid min-w-0 gap-3 border-t border-rule pt-4">
+          <h2 class="text-base font-semibold leading-snug text-ink">Experience</h2>
+          <p class="text-sm leading-7 text-muted">
+            Senior Full Stack Developer at Jitera — previously Base, Lifepal, YouExpress, and RebelWorks since 2017.
+          </p>
+          <NuxtLink to="/experiences" class="inline-flex min-h-11 items-center text-sm font-medium text-accent-ink underline decoration-current decoration-1 underline-offset-4 transition-[text-decoration-thickness] duration-150 ease-out hover:decoration-2 hover:underline-offset-2">
+            View the journey →
+          </NuxtLink>
+        </article>
       </section>
     </article>
   </PageContainer>
