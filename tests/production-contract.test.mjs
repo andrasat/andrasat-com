@@ -51,6 +51,14 @@ test('Given homepage HTML, When rendered, Then introduction is complete immediat
   }
 })
 
+test('Given the homepage hero, When its canvas is unavailable, Then project and experience routes remain usable', async () => {
+  const { response, html } = await getPage('/')
+  assert.equal(response.status, 200)
+  assert.match(html, /<canvas\b[^>]*aria-hidden="true"/, 'hero should have a decorative canvas layer')
+  assert.match(html, /<a\b[^>]*href="\/projects"[^>]*>Explore Yifa/, 'hero should retain an HTML project link')
+  assert.match(html, /<a\b[^>]*href="\/experiences"[^>]*>View experience/, 'hero should retain an HTML experience link')
+})
+
 test('Given projects HTML, When rendered, Then it contains current work facts only', async () => {
   const { response, html } = await getPage('/projects')
   assert.equal(response.status, 200)

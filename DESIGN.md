@@ -133,6 +133,10 @@ Target WCAG 2.1 AA. Use semantic `header`, `nav`, `main`, `section`, `article`, 
 
 Motion is limited to state change, spatial orientation, or interaction feedback. Use opacity and transform, with short ease-out transitions. Content is visible without animation. Under `prefers-reduced-motion: reduce`, remove movement and preserve immediate content visibility.
 
+### Home hero exception
+
+The home route may use the `ProductEngine` Three.js scene as its first-viewport visual layer. It must retain the same visible semantic HTML introduction and route links; the canvas is never the only navigation or content. Load it only on capable desktop devices. Mobile, reduced-motion, no-WebGL, and low-core paths retain the static HTML and CSS composition. Use a fixed camera, one short assembly motion, and monitor-shaped visual forms. Rendered monitor controls may enhance pointer navigation, but equivalent visible HTML route links remain available for keyboard and fallback use.
+
 ## 8. Explicit Exclusions and Accepted Constraints
 
 Exclude terminal styling, typewriter effects, Konami interactions, monospace typography, icon walls, logo walls, **Selected Works**, mockup classes, mockup routes, gradient text, Red Hat, Merriweather, licorice, dark-only behavior, decorative glassmorphism, and legal pages.

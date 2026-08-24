@@ -54,24 +54,18 @@ const skillCategories = [
 </script>
 
 <template>
+  <ProductEngine />
+
   <PageContainer>
     <article class="grid gap-16 md:gap-[4.5rem]">
-      <section class="grid gap-6 border-b border-rule pb-10 md:grid-cols-[minmax(0,1.6fr)_minmax(12rem,0.8fr)] md:items-end">
+      <section class="grid gap-6 md:grid-cols-[minmax(0,1.6fr)_minmax(12rem,0.8fr)] md:items-end">
         <div class="min-w-0">
-          <h1 class="text-[clamp(2.5rem,7vw,5.75rem)] font-semibold leading-[0.98] tracking-[-0.03em] text-ink text-balance">
-            Andra Satria.
-          </h1>
-          <p class="mt-6 max-w-3xl text-[clamp(1.75rem,4vw,3rem)] font-semibold leading-[1.05] tracking-[-0.03em] text-muted text-balance">
-            Building products from 0 to 1.
-          </p>
+          <h2 class="text-[clamp(1.75rem,4vw,3rem)] font-semibold leading-[1.05] tracking-[-0.03em] text-ink text-balance">
+            Systems, from interface to infrastructure.
+          </h2>
         </div>
 
-        <aside class="grid min-w-0 gap-4 border-t border-rule pt-4" aria-label="Current role and experience">
-          <p class="max-w-[66ch] text-[clamp(0.9375rem,1.4vw,1.0625rem)] leading-[1.8] text-muted text-pretty">
-            Now working remotely at
-            <TextLink href="https://jitera.com/">Jitera</TextLink>
-            as Senior Full Stack Developer.
-          </p>
+        <aside class="grid min-w-0 gap-4 border-t border-rule pt-4" aria-label="Experience summary">
           <p class="max-w-[66ch] text-[clamp(0.9375rem,1.4vw,1.0625rem)] leading-[1.8] text-muted text-pretty">
             I am a software engineer with <strong class="font-semibold text-ink">{{ yoe }}+ years</strong> of experience in crafting robust web applications.
           </p>
