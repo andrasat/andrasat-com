@@ -96,26 +96,6 @@ const skillCategories = [
         </div>
       </section>
 
-      <section class="grid gap-6 md:grid-cols-2 md:gap-10" aria-label="Where to look next">
-        <article class="grid min-w-0 gap-3 border-t border-rule pt-4">
-          <h2 class="text-base font-semibold leading-snug text-ink">Now building</h2>
-          <p class="text-sm leading-7 text-muted">
-            Yifa — a privacy-first personal finance tracker with AI-powered insights. Coming soon.
-          </p>
-          <NuxtLink to="/projects" class="inline-flex min-h-11 items-center text-sm font-medium text-accent-ink underline decoration-current decoration-1 underline-offset-4 transition-[text-decoration-thickness] duration-150 ease-out hover:decoration-2 hover:underline-offset-2">
-            See projects →
-          </NuxtLink>
-        </article>
-        <article class="grid min-w-0 gap-3 border-t border-rule pt-4">
-          <h2 class="text-base font-semibold leading-snug text-ink">Experience</h2>
-          <p class="text-sm leading-7 text-muted">
-            Senior Full Stack Developer at Jitera — previously Base, Lifepal, YouExpress, and RebelWorks since 2017.
-          </p>
-          <NuxtLink to="/experiences" class="inline-flex min-h-11 items-center text-sm font-medium text-accent-ink underline decoration-current decoration-1 underline-offset-4 transition-[text-decoration-thickness] duration-150 ease-out hover:decoration-2 hover:underline-offset-2">
-            View the journey →
-          </NuxtLink>
-        </article>
-      </section>
     </article>
   </PageContainer>
 </template>

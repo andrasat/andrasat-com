@@ -253,7 +253,7 @@ onMounted(async () => {
     </div>
     <canvas ref="canvas" class="absolute inset-0 h-full w-full transition-opacity duration-300" :class="canvasReady ? 'opacity-100' : 'opacity-0'" aria-hidden="true" />
 
-    <div class="pointer-events-none relative mx-auto grid min-h-[calc(100svh-5.25rem)] w-full max-w-[76rem] content-center px-4 py-10 md:grid-cols-[minmax(0,0.9fr)_minmax(22rem,1.1fr)] md:px-6">
+    <div class="pointer-events-none relative mx-auto grid min-h-[calc(100svh-5.25rem)] w-full max-w-[76rem] content-start px-4 pb-10 pt-20 md:grid-cols-[minmax(0,0.9fr)_minmax(22rem,1.1fr)] md:px-6 md:pt-24">
       <div class="pointer-events-auto min-w-0">
         <p class="text-xs font-semibold text-accent-ink">Senior Full Stack Developer</p>
         <h1 class="mt-4 text-[clamp(2.5rem,7vw,5.75rem)] font-semibold leading-[0.98] tracking-[-0.03em] text-ink text-balance">

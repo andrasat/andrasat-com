@@ -46,7 +46,7 @@ test('Given homepage HTML, When rendered, Then introduction is complete immediat
     assert.ok(html.includes(marker), `homepage should contain ${marker}`)
   }
 
-  for (const marker of ['terminal', 'typewriter', 'devicon', 'Konami']) {
+  for (const marker of ['terminal', 'typewriter', 'devicon', 'Konami', 'Senior Full Stack Developer at Jitera — previously']) {
     assert.ok(!html.includes(marker), `homepage should exclude ${marker}`)
   }
 })
@@ -59,18 +59,24 @@ test('Given the homepage hero, When its canvas is unavailable, Then project and 
   assert.match(html, /<a\b[^>]*href="\/experiences"[^>]*>View experience/, 'hero should retain an HTML experience link')
 })
 
-test('Given projects HTML, When rendered, Then it contains current work facts only', async () => {
+test('Given projects HTML, When rendered, Then it contains current project facts only', async () => {
   const { response, html } = await getPage('/projects')
   assert.equal(response.status, 200)
 
   for (const fact of [
-    'Now Building',
+    'Projects',
     'Yifa',
-    'Your Financial Assistant',
-    'Coming soon',
-    'A privacy-first personal finance tracker with AI-powered insights that helps users understand spending and build healthier financial habits without handing over bank credentials.',
+    'Income allocation and planning for Indonesian independent earners',
+    'In development',
+    'A privacy-first income allocation and planning system that helps users reserve tax, protect essentials, fund goals, and know what is safe to spend without handing over bank credentials.',
     'Kotlin',
     'Android',
+    'pi-llm-self-verify',
+    'Independent solution selection for Pi',
+    'Release candidate',
+    'A Pi package that generates independent, read-only candidate solutions and selects the strongest with a fine-grained logprob verifier.',
+    'TypeScript',
+    'Pi',
     'Trade Bot',
     'Algorithmic trading, on Telegram',
     'Private project',
@@ -82,6 +88,7 @@ test('Given projects HTML, When rendered, Then it contains current work facts on
   }
 
   assert.match(html, /<a\b[^>]*\bhref="https:\/\/yifa\.id"[^>]*>/, 'projects should link to yifa.id')
+  assert.match(html, /<a\b[^>]*\bhref="https:\/\/github\.com\/andrasat\/pi-llm-self-verify"[^>]*>/, 'projects should link to pi-llm-self-verify')
 
   const body = html.replace(/<head[\s\S]*?<\/head>/, '')
   for (const marker of ['Selected Works', 'andrasat.com', 'aoc']) {

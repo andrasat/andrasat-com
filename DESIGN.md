@@ -18,7 +18,7 @@ themes: system, light, dark
 - Use an asymmetric, left-anchored composition with a strong opening statement and compact proof rail.
 - Put current role and links near the introduction.
 - Present skills as a concise capability index, never an icon wall.
-- Present projects as evidence rows. Projects contains **Now Building** only, with Yifa prominent and existing factual content unchanged.
+- Present projects and experiments as evidence rows. Keep Yifa prominent and use only factual content.
 - Present experience as readable chronology, with dates aligned as metadata.
 - Keep contact visible at the end of the primary flow.
 - Use rules and whitespace to separate evidence groups. Do not repeat card grids.
@@ -141,6 +141,6 @@ The home route may use the `ProductEngine` Three.js scene as its first-viewport 
 
 Exclude terminal styling, typewriter effects, Konami interactions, monospace typography, icon walls, logo walls, **Selected Works**, mockup classes, mockup routes, gradient text, Red Hat, Merriweather, licorice, dark-only behavior, decorative glassmorphism, and legal pages.
 
-This contract does not invent content, metrics, outcomes, project descriptions, employers, dates, or availability claims. Projects contains **Now Building** only. Legal cleanup, route removal, and migration work are outside this document's implementation scope.
+This contract does not invent content, metrics, outcomes, project descriptions, employers, dates, or availability claims. Legal cleanup, route removal, and migration work are outside this document's implementation scope.
 
 Accepted constraints: Commissioner is the sole typeface; the interface uses neutral canvas tokens and a restrained aero interaction accent; System, Light, and Dark must remain usable and readable; evidence rows and whitespace replace repeated card grids; responsive behavior must satisfy 375px, 768px, and 1280px targets.

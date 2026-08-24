@@ -18,7 +18,7 @@ andrasat.com is the professional home of Andra Satria. It exists to:
 2. **Showcase capability** through work history, technical breadth, current projects, and a concise capability index.
 3. **Share thinking** through technical and professional writing that demonstrates perspective beyond code.
 
-Projects contains one group, **Now Building**. Do not create a **Selected Works** group or invent project claims, metrics, outcomes, or descriptions.
+Projects present factual work and experiments. Do not create a **Selected Works** group or invent project claims, metrics, outcomes, or descriptions.
 
 ## Personality
 

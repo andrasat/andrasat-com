@@ -21,14 +21,22 @@ useHead({
   ]
 })
 
-const nowBuilding = [
+const projects = [
   {
     name: 'Yifa',
-    tagline: 'Your Financial Assistant',
-    status: 'Coming soon',
-    description: 'A privacy-first personal finance tracker with AI-powered insights that helps users understand spending and build healthier financial habits without handing over bank credentials.',
+    tagline: 'Income allocation and planning for Indonesian independent earners',
+    status: 'In development',
+    description: 'A privacy-first income allocation and planning system that helps users reserve tax, protect essentials, fund goals, and know what is safe to spend without handing over bank credentials.',
     link: 'https://yifa.id',
     stack: ['Kotlin', 'Android']
+  },
+  {
+    name: 'pi-llm-self-verify',
+    tagline: 'Independent solution selection for Pi',
+    status: 'Release candidate',
+    description: 'A Pi package that generates independent, read-only candidate solutions and selects the strongest with a fine-grained logprob verifier.',
+    link: 'https://github.com/andrasat/pi-llm-self-verify',
+    stack: ['TypeScript', 'Pi']
   },
   {
     name: 'Trade Bot',
@@ -53,14 +61,14 @@ const nowBuilding = [
         </p>
       </header>
 
-      <section class="mt-[4.5rem]" aria-labelledby="now-building">
-        <h2 id="now-building" class="text-[clamp(1.75rem,4vw,3rem)] font-semibold leading-[1.05] tracking-tight text-ink text-balance">
-          Now Building
+      <section class="mt-[4.5rem]" aria-labelledby="projects-heading">
+        <h2 id="projects-heading" class="text-[clamp(1.75rem,4vw,3rem)] font-semibold leading-[1.05] tracking-tight text-ink text-balance">
+          Projects
         </h2>
 
         <div class="mt-6 border-t border-rule">
           <article
-            v-for="project in nowBuilding"
+            v-for="project in projects"
             :key="project.name"
             class="grid gap-6 border-b border-rule py-6 md:grid-cols-[minmax(10rem,0.65fr)_minmax(0,1.35fr)] md:gap-10"
           >
