@@ -4,9 +4,9 @@ Use this index to choose a workflow when the request does not already name one. 
 
 | Command | Category | Description | Reference |
 |---|---|---|---|
-| `craft [feature]` | Build | Shape, then build a feature end-to-end | [craft.md](craft.md) |
+| `craft [feature]` | Build | Build and verify a feature; use Shape when planning is needed | [craft.md](craft.md) |
 | `shape [feature]` | Build | Plan UX/UI before writing code | [shape.md](shape.md) |
-| `init` | Build | Set up project context: PRODUCT.md, DESIGN.md, live config, next steps | [init.md](init.md) |
+| `init` | Build | Create or refresh requested project context; live setup only when authorized | [init.md](init.md) |
 | `document` | Build | Generate DESIGN.md from existing project code | [document.md](document.md) |
 | `extract [target]` | Build | Pull reusable tokens and components into design system | [extract.md](extract.md) |
 | `critique [target]` | Evaluate | UX design review with heuristic scoring | [critique.md](critique.md) |
