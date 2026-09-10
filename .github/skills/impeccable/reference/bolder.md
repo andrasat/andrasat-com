@@ -32,7 +32,7 @@ If any of these are unclear from the codebase, ask the user directly to clarify 
 
 **CRITICAL**: "Bolder" doesn't mean chaotic or garish. It means distinctive, memorable, and confident. Think intentional drama, not random chaos.
 
-**WARNING - AI SLOP TRAP**: Review ALL the DON'T guidelines from the parent impeccable skill (already loaded in this context) before proceeding. Bold means distinctive, not "more effects."
+**WARNING - AI SLOP TRAP**: Read the [visual guidance and patterns to avoid](design-guidance.md) before choosing a bolder direction; these rules are not embedded in the parent router. Bold means distinctive, not "more effects."
 
 ## Plan Amplification
 
@@ -50,7 +50,7 @@ Create a strategy to increase impact while maintaining coherence:
 Systematically increase impact across these dimensions:
 
 ### Typography Amplification
-- **Replace generic fonts**: Swap system fonts for distinctive choices (see the parent skill's typography guidelines and the [Reference Material section of typeset.md](typeset.md#reference-material) for inspiration)
+- **Replace generic fonts**: Swap system fonts for distinctive choices (see the [typography guidelines](design-guidance.md#typography) and the [Reference Material section of typeset.md](typeset.md#reference-material) for inspiration)
 - **Extreme scale**: Create dramatic size jumps (3x-5x differences, not 1.5x)
 - **Weight contrast**: Pair 900 weights with 200 weights, not 600 with 400
 - **Unexpected choices**: Variable fonts, display fonts for headlines, condensed/extended widths, monospace as intentional accent (not as lazy "dev tool" default)

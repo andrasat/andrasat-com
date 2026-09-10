@@ -6,7 +6,7 @@ Replace timid grayscale or single-accent designs with a strategic palette: pick 
 
 ## Register
 
-Brand: palette IS voice. Pick a color strategy first per SKILL.md (Restrained / Committed / Full palette / Drenched) and follow its dosage. Committed, Full palette, and Drenched deliberately exceed the ≤10% rule; that rule is Restrained only. Unexpected combinations are allowed; a dominant color can own the page when the chosen strategy calls for it.
+Brand: palette IS voice. Read [Color & Theme](design-guidance.md#color--theme) and pick a color strategy first (Restrained / Committed / Full palette / Drenched) and follow its dosage. Committed, Full palette, and Drenched deliberately exceed the ≤10% rule; that rule is Restrained only. Unexpected combinations are allowed; a dominant color can own the page when the chosen strategy calls for it.
 
 Product: semantic-first and almost always Restrained. Accent color is reserved for primary action, current selection, and state indicators. Not decoration. Every color has a consistent meaning across every screen.
 
@@ -87,7 +87,7 @@ Add color systematically across these dimensions:
 - **Focus rings**: Colored focus indicators matching brand
 - **Surface tints**: A 4-8% background wash of the accent color instead of a stripe
 
-**NEVER**: `border-left` or `border-right` greater than 1px as a colored accent stripe. This is one of the three absolute bans in the parent skill. If you want to mark a card as "active" or "warning", use a full hairline border, a background tint, a leading glyph, or a numbered prefix. Not a side stripe.
+**NEVER**: `border-left` or `border-right` greater than 1px as a colored accent stripe. See the [patterns to avoid](design-guidance.md#patterns-to-avoid) for the shared rationale. If you want to mark a card as "active" or "warning", use a full hairline border, a background tint, a leading glyph, or a numbered prefix. Not a side stripe.
 
 ### Typography Color
 - **Colored headings**: Use brand colors for section headings (maintain contrast)
