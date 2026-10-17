@@ -77,7 +77,7 @@ if [ ! -f "$SITE_CONFIG" ]; then
 fi
 
 # Extract upstream port from config so we can warn if it's unreachable
-UPSTREAM_PORT=$(awk '/^[[:space:]]*server[[:space:]]/ && /127\.0\.0\.1/{print $2; exit}' "$SITE_CONFIG")
+UPSTREAM_PORT=$(awk '/^[[:space:]]*server[[:space:]]/ && /127\.0\.0\.1/{sub(";", "", $2); print $2; exit}' "$SITE_CONFIG")
 
 if [ -z "$UPSTREAM_PORT" ]; then
   echo "WARNING: Could not determine upstream port from config. Skipping connectivity check."
