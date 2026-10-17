@@ -36,6 +36,10 @@ jobs:
           USERNAME: ${{ secrets.USERNAME }}
           SSH_PASSPHRASE: ${{ secrets.SSH_PASSPHRASE }}
           SSH_HOST_KEY: ${{ secrets.SSH_HOST_KEY }}
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version-file: .node-version
       - name: Setup Bun
         uses: oven-sh/setup-bun@v2
         with:
