@@ -24,11 +24,11 @@ useHead({
 const projects = [
   {
     name: 'Yifa',
-    tagline: 'Income allocation and planning for Indonesian independent earners',
+    tagline: 'English interview practice for international work',
     status: 'In development',
-    description: 'A privacy-first income allocation and planning system that helps users reserve tax, protect essentials, fund goals, and know what is safe to spend without handing over bank credentials.',
+    description: 'An Android app for rehearsing English interview answers about your real experience. Answer by speaking or typing, get one specific improvement, retry, and compare. Built first for Indonesian adults applying for remote and overseas software roles.',
     link: 'https://yifa.id',
-    stack: ['Kotlin', 'Android']
+    stack: ['Kotlin', 'Android', 'FastAPI']
   },
   {
     name: 'pi-llm-self-verify',
