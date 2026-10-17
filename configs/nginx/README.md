@@ -25,7 +25,7 @@ sudo cp /path/to/repo/configs/nginx/andrasat.com.conf /etc/nginx/sites-available
 sudo ln -s /etc/nginx/sites-available/andrasat.com.conf /etc/nginx/sites-enabled/andrasat.com.conf
 
 # 3) Issue or renew primary-domain certificate
-sudo certbot --nginx -d andrasat.com -d www.andrasat.com
+sudo certbot --nginx --cert-name andrasat.com -d andrasat.com
 
 # 4) Validate config
 sudo nginx -t
@@ -56,3 +56,16 @@ sudo systemctl reload nginx
 ## Expected URLs after setup
 
 - `https://andrasat.com/`
+
+## Cloudflare
+
+DNS for `andrasat.com` is managed in Cloudflare with the record proxied.
+
+- Set SSL/TLS mode to **Full (strict)**. Flexible mode causes a redirect loop with the HTTP to HTTPS redirect above.
+- Web Analytics uses automatic injection on the proxied zone. The CSP allows `https://static.cloudflareinsights.com` (beacon script) and `https://cloudflareinsights.com` (reporting).
+- `legal.andrasat.com` is retired. If the certificate still lists it, reissue without it so renewal does not fail:
+
+```bash
+sudo certbot certificates
+sudo certbot --nginx --cert-name andrasat.com -d andrasat.com
+```
