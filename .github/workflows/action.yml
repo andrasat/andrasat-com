@@ -38,10 +38,8 @@ jobs:
       - name: Setup SSH
         run: ./scripts/setup_ssh.sh
         env:
-          KEY: ${{ secrets.KEY }}
           HOST: ${{ secrets.HOST }}
           USERNAME: ${{ secrets.USERNAME }}
-          SSH_PASSPHRASE: ${{ secrets.SSH_PASSPHRASE }}
           SSH_HOST_KEY: ${{ secrets.SSH_HOST_KEY }}
       - name: Setup Node
         uses: actions/setup-node@v4
