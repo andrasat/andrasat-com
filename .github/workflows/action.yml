@@ -42,7 +42,7 @@ jobs:
           USERNAME: ${{ secrets.USERNAME }}
           SSH_HOST_KEY: ${{ secrets.SSH_HOST_KEY }}
       - name: Setup Node
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v7
         with:
           node-version-file: .node-version
       - name: Setup Bun
@@ -51,7 +51,7 @@ jobs:
           bun-version: latest
       - name: Detect nginx changes
         id: nginx
-        uses: dorny/paths-filter@v3
+        uses: dorny/paths-filter@v4
         with:
           filters: |
             nginx:
